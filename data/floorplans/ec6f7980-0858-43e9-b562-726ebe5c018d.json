@@ -1,0 +1,54 @@
+{
+  "id": "ec6f7980-0858-43e9-b562-726ebe5c018d",
+  "seed": 2022,
+  "region": "US_suburb",
+  "size_category": "micro",
+  "rooms": [
+    {
+      "id": "2dd70e00-3ef9-4361-8240-965da845d7b8",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 2.7936859796017837,
+        "height": 5.004802412523317
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "96b075c9-dce4-4dd8-8cfa-b797bf24da91",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 2.7936859796017837,
+        "y": 0,
+        "width": 3.794863083791351,
+        "height": 5.004802412523317
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "128323ea-9ca1-4a20-846f-cc8db480fa7c",
+      "room_a_id": "2dd70e00-3ef9-4361-8240-965da845d7b8",
+      "room_b_id": "96b075c9-dce4-4dd8-8cfa-b797bf24da91",
+      "position": {
+        "x": 2.7936859796017837,
+        "y": 3.324602861875726
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "96b075c9-dce4-4dd8-8cfa-b797bf24da91",
+  "metadata": {
+    "target_area": 32.974386247498195,
+    "actual_area": 32.9743862474982,
+    "room_count": 2,
+    "door_count": 1
+  }
+}

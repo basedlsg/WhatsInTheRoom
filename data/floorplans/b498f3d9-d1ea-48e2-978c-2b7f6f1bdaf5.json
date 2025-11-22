@@ -1,0 +1,148 @@
+{
+  "id": "b498f3d9-d1ea-48e2-978c-2b7f6f1bdaf5",
+  "seed": 2938,
+  "region": "Australian_house",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "3c34ec17-4c28-4b25-ab6e-1fbf90533393",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.371092892314308,
+        "height": 8.895969003135075
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c2c4028d-6abd-49ce-be97-e05c52e92471",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 4.371092892314308,
+        "y": 0,
+        "width": 5.250137249473302,
+        "height": 3.222642091786248
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c32bff61-2b1d-4c1d-935f-c7aa905af184",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 4.371092892314308,
+        "y": 3.222642091786248,
+        "width": 5.250137249473302,
+        "height": 2.2039565959248453
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "425b400e-03b5-4ee1-b5ee-6c6e8d22b9ce",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 4.371092892314308,
+        "y": 5.426598687711094,
+        "width": 2.8669698328102156,
+        "height": 3.4693703154239817
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "40caa745-0c4c-4bd9-a1da-15040110efd8",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 7.238062725124523,
+        "y": 5.426598687711094,
+        "width": 2.3831674166630865,
+        "height": 3.4693703154239817
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "be603930-0df3-4cf9-a101-5d6d547de76f",
+      "room_a_id": "3c34ec17-4c28-4b25-ab6e-1fbf90533393",
+      "room_b_id": "c32bff61-2b1d-4c1d-935f-c7aa905af184",
+      "position": {
+        "x": 4.371092892314308,
+        "y": 4.71855913705245
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "5cd14b4b-8c1a-4be5-a183-dfe2e1727d1d",
+      "room_a_id": "3c34ec17-4c28-4b25-ab6e-1fbf90533393",
+      "room_b_id": "425b400e-03b5-4ee1-b5ee-6c6e8d22b9ce",
+      "position": {
+        "x": 4.371092892314308,
+        "y": 8.070350004234355
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "44995557-8747-4061-b127-9acb2a74a4f3",
+      "room_a_id": "c32bff61-2b1d-4c1d-935f-c7aa905af184",
+      "room_b_id": "425b400e-03b5-4ee1-b5ee-6c6e8d22b9ce",
+      "position": {
+        "x": 6.019630404743928,
+        "y": 5.426598687711094
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "7aaa7a5a-56a1-400f-8379-5e36b33a2b83",
+      "room_a_id": "c2c4028d-6abd-49ce-be97-e05c52e92471",
+      "room_b_id": "c32bff61-2b1d-4c1d-935f-c7aa905af184",
+      "position": {
+        "x": 8.096014809699511,
+        "y": 3.222642091786248
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "ba4a3301-e7fe-4f82-a1b1-9d26bfa2f651",
+      "room_a_id": "c32bff61-2b1d-4c1d-935f-c7aa905af184",
+      "room_b_id": "40caa745-0c4c-4bd9-a1da-15040110efd8",
+      "position": {
+        "x": 7.949580720432492,
+        "y": 5.426598687711094
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "e9521de6-bdb1-4c1c-8b73-3bf9a3850e81",
+      "room_a_id": "425b400e-03b5-4ee1-b5ee-6c6e8d22b9ce",
+      "room_b_id": "40caa745-0c4c-4bd9-a1da-15040110efd8",
+      "position": {
+        "x": 7.238062725124523,
+        "y": 6.532741297145648
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "425b400e-03b5-4ee1-b5ee-6c6e8d22b9ce",
+  "metadata": {
+    "target_area": 85.59016511337148,
+    "actual_area": 85.59016511337147,
+    "room_count": 5,
+    "door_count": 6
+  }
+}

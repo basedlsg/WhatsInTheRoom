@@ -1,0 +1,78 @@
+{
+  "id": "b8be4430-f88a-4c08-a24e-f40ee8af970e",
+  "seed": 2571,
+  "region": "European_old_town",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "68f5d128-31fa-4cc3-a61b-57e19b98c90a",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 3.6927307417493482,
+        "height": 2.580823753071983
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "f7374073-4d3c-486a-a11a-81196179e36e",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 3.6927307417493482,
+        "y": 0,
+        "width": 3.5072269476792224,
+        "height": 6.422163343767495
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "ce59f0ec-72ee-46ba-a2a4-b5812873feef",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 2.580823753071983,
+        "width": 3.6927307417493482,
+        "height": 3.8413395906955117
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "68a09cd3-093a-4a4b-80bd-57fde03888fb",
+      "room_a_id": "68f5d128-31fa-4cc3-a61b-57e19b98c90a",
+      "room_b_id": "f7374073-4d3c-486a-a11a-81196179e36e",
+      "position": {
+        "x": 3.6927307417493482,
+        "y": 0.8402191775817016
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "00c62811-8012-4f9d-839c-16a916b7efde",
+      "room_a_id": "68f5d128-31fa-4cc3-a61b-57e19b98c90a",
+      "room_b_id": "ce59f0ec-72ee-46ba-a2a4-b5812873feef",
+      "position": {
+        "x": 0.8763634490316252,
+        "y": 2.580823753071983
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "f7374073-4d3c-486a-a11a-81196179e36e",
+  "metadata": {
+    "target_area": 46.23930434972507,
+    "actual_area": 46.239304349725074,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

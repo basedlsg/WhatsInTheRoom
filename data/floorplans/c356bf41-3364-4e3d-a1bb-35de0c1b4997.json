@@ -1,0 +1,78 @@
+{
+  "id": "c356bf41-3364-4e3d-a1bb-35de0c1b4997",
+  "seed": 2516,
+  "region": "European_old_town",
+  "size_category": "micro",
+  "rooms": [
+    {
+      "id": "d8efb874-2455-40e1-a7d4-01b745225b14",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 3.487920166253285,
+        "height": 5.059306947755406
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "1672303c-ba4a-4e15-814f-68ebed501f12",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.487920166253285,
+        "y": 0,
+        "width": 4.296665999886891,
+        "height": 1.6023717299652749
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "d5dbbd64-9aef-4c48-ae19-556969ce329f",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 3.487920166253285,
+        "y": 1.6023717299652749,
+        "width": 4.296665999886891,
+        "height": 3.4569352177901314
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "6861b686-1822-4039-9867-b82d45cf2751",
+      "room_a_id": "d8efb874-2455-40e1-a7d4-01b745225b14",
+      "room_b_id": "1672303c-ba4a-4e15-814f-68ebed501f12",
+      "position": {
+        "x": 3.487920166253285,
+        "y": 0.8011858649826374
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "44b7da90-969b-4855-a225-7d98058aae94",
+      "room_a_id": "d8efb874-2455-40e1-a7d4-01b745225b14",
+      "room_b_id": "d5dbbd64-9aef-4c48-ae19-556969ce329f",
+      "position": {
+        "x": 3.487920166253285,
+        "y": 3.021048500924697
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "1672303c-ba4a-4e15-814f-68ebed501f12",
+  "metadata": {
+    "target_area": 39.38461087575361,
+    "actual_area": 39.38461087575361,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

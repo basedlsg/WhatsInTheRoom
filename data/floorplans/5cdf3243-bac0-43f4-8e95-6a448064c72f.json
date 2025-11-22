@@ -1,0 +1,78 @@
+{
+  "id": "5cdf3243-bac0-43f4-8e95-6a448064c72f",
+  "seed": 2892,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "59b0579b-3e6c-4b15-a250-a68c69726fe1",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.041491179896595,
+        "height": 4.011621107585455
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "813dc969-d5aa-4776-9800-45b07fead45e",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 7.041491179896595,
+        "y": 0,
+        "width": 3.3889957304063563,
+        "height": 7.060278348997777
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "ac198726-d8fe-4ed6-ba49-9d7c9dc03860",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 4.011621107585455,
+        "width": 7.041491179896595,
+        "height": 3.0486572414123216
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "f665f83f-5b22-462e-96f6-732b9144cf8e",
+      "room_a_id": "59b0579b-3e6c-4b15-a250-a68c69726fe1",
+      "room_b_id": "ac198726-d8fe-4ed6-ba49-9d7c9dc03860",
+      "position": {
+        "x": 3.863048026922235,
+        "y": 4.011621107585455
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "439c9bf3-2677-4ea9-871c-496af845cd49",
+      "room_a_id": "59b0579b-3e6c-4b15-a250-a68c69726fe1",
+      "room_b_id": "813dc969-d5aa-4776-9800-45b07fead45e",
+      "position": {
+        "x": 7.041491179896595,
+        "y": 0.6306537751364775
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "ac198726-d8fe-4ed6-ba49-9d7c9dc03860",
+  "metadata": {
+    "target_area": 73.64214090231664,
+    "actual_area": 73.64214090231664,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

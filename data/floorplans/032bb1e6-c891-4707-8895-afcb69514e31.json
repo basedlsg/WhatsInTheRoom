@@ -1,0 +1,78 @@
+{
+  "id": "032bb1e6-c891-4707-8895-afcb69514e31",
+  "seed": 2728,
+  "region": "Japanese_apartment",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "0d94963d-4843-4035-b74d-b50e60dcb5af",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 3.7879302398357453,
+        "height": 6.264131214983988
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "d11ce338-df16-44e3-a533-af8bf53f9c30",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 3.7879302398357453,
+        "y": 0,
+        "width": 2.861231129250471,
+        "height": 3.3536013955429897
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "e6069066-1362-49bb-85cd-c6bf4abb4dc9",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.7879302398357453,
+        "y": 3.3536013955429897,
+        "width": 2.861231129250471,
+        "height": 2.910529819440998
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "b18d276f-13b0-4074-b4df-d8da9251f9c5",
+      "room_a_id": "0d94963d-4843-4035-b74d-b50e60dcb5af",
+      "room_b_id": "e6069066-1362-49bb-85cd-c6bf4abb4dc9",
+      "position": {
+        "x": 3.7879302398357453,
+        "y": 5.600213815426476
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "d23e2073-089a-4cfc-844c-abb898ee25a6",
+      "room_a_id": "0d94963d-4843-4035-b74d-b50e60dcb5af",
+      "room_b_id": "d11ce338-df16-44e3-a533-af8bf53f9c30",
+      "position": {
+        "x": 3.7879302398357453,
+        "y": 1.483021203166365
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "e6069066-1362-49bb-85cd-c6bf4abb4dc9",
+  "metadata": {
+    "target_area": 41.65121928555864,
+    "actual_area": 41.65121928555864,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "3697ac1a-cb10-4748-b637-d1114f38fe39",
+  "seed": 2056,
+  "region": "US_suburb",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "c3216528-e8bb-4f17-a25c-cdfd3181e8b1",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.309996136272796,
+        "height": 7.095677467908315
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "8bb1caab-8077-43ab-8e64-8ac9f72d1728",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 6.309996136272796,
+        "y": 0,
+        "width": 4.370459143309626,
+        "height": 2.772979014542035
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "295df268-ab03-4f1e-aee0-9e6a4df6f292",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 6.309996136272796,
+        "y": 2.772979014542035,
+        "width": 4.370459143309626,
+        "height": 4.3226984533662804
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "c69a6fb7-4a47-4532-99d1-ac0e576949c7",
+      "room_a_id": "c3216528-e8bb-4f17-a25c-cdfd3181e8b1",
+      "room_b_id": "8bb1caab-8077-43ab-8e64-8ac9f72d1728",
+      "position": {
+        "x": 6.309996136272796,
+        "y": 1.1863515123423436
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "a03079b8-618e-4dab-8d46-f581a79933f9",
+      "room_a_id": "c3216528-e8bb-4f17-a25c-cdfd3181e8b1",
+      "room_b_id": "295df268-ab03-4f1e-aee0-9e6a4df6f292",
+      "position": {
+        "x": 6.309996136272796,
+        "y": 5.946992570110297
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "8bb1caab-8077-43ab-8e64-8ac9f72d1728",
+  "metadata": {
+    "target_area": 75.7850658743354,
+    "actual_area": 75.7850658743354,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

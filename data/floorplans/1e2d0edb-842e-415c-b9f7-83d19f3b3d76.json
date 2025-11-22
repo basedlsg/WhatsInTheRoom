@@ -1,0 +1,78 @@
+{
+  "id": "1e2d0edb-842e-415c-b9f7-83d19f3b3d76",
+  "seed": 2576,
+  "region": "European_old_town",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "7f289034-d60b-45f8-95e0-0fee274defad",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.380112877251904,
+        "height": 7.131060359626749
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "4268d12f-68ef-4875-ab94-d3e756fd190c",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.380112877251904,
+        "y": 0,
+        "width": 4.560848798998714,
+        "height": 4.673613551023764
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "8563e933-8851-4b1f-9e22-a44370349565",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 6.380112877251904,
+        "y": 4.673613551023764,
+        "width": 4.560848798998714,
+        "height": 2.4574468086029846
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "6296f208-3875-4a72-a813-e087d250cdda",
+      "room_a_id": "7f289034-d60b-45f8-95e0-0fee274defad",
+      "room_b_id": "8563e933-8851-4b1f-9e22-a44370349565",
+      "position": {
+        "x": 6.380112877251904,
+        "y": 5.2472393458130036
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "f52a89b8-5377-4548-ac6e-1781b1b8af64",
+      "room_a_id": "7f289034-d60b-45f8-95e0-0fee274defad",
+      "room_b_id": "4268d12f-68ef-4875-ab94-d3e756fd190c",
+      "position": {
+        "x": 6.380112877251904,
+        "y": 3.4737217728618295
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "8563e933-8851-4b1f-9e22-a44370349565",
+  "metadata": {
+    "target_area": 78.02065810570622,
+    "actual_area": 78.02065810570619,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

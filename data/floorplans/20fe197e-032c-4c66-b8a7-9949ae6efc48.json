@@ -1,0 +1,78 @@
+{
+  "id": "20fe197e-032c-4c66-b8a7-9949ae6efc48",
+  "seed": 2902,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "dfaab6f3-3292-4396-b5e9-6283f5162886",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.043450585944182,
+        "height": 7.146188216934305
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "1dcbc68b-d20b-40be-a166-e15a78d219ed",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 7.043450585944182,
+        "y": 0,
+        "width": 4.012312126134594,
+        "height": 4.1042402756553855
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "913b742c-8cef-4dce-bd89-29e52720d99f",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 7.043450585944182,
+        "y": 4.1042402756553855,
+        "width": 4.012312126134594,
+        "height": 3.041947941278919
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "523457cc-571d-445d-8b56-5dad43110d3b",
+      "room_a_id": "dfaab6f3-3292-4396-b5e9-6283f5162886",
+      "room_b_id": "913b742c-8cef-4dce-bd89-29e52720d99f",
+      "position": {
+        "x": 7.043450585944182,
+        "y": 5.2235039801215715
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "40c049b4-edc0-4e5d-ab1d-cdcae0276f0e",
+      "room_a_id": "dfaab6f3-3292-4396-b5e9-6283f5162886",
+      "room_b_id": "1dcbc68b-d20b-40be-a166-e15a78d219ed",
+      "position": {
+        "x": 7.043450585944182,
+        "y": 2.165771386731478
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "dfaab6f3-3292-4396-b5e9-6283f5162886",
+  "metadata": {
+    "target_area": 79.006561222279,
+    "actual_area": 79.006561222279,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

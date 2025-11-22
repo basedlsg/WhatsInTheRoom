@@ -1,0 +1,78 @@
+{
+  "id": "e44b1bce-e959-4623-a785-0d67b9f6cc1f",
+  "seed": 2452,
+  "region": "Chinese_city_apartment",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "584b10fe-6815-4a35-9295-99b97c4157cf",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.15780786990542,
+        "height": 4.622403323486711
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "869d2d97-94ca-4a4e-914b-e9ba138f57f0",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 4.15780786990542,
+        "y": 0,
+        "width": 6.171587627341945,
+        "height": 4.622403323486711
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "0689fdd8-dba9-43a6-b376-d7fbb8f9c00a",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 4.622403323486711,
+        "width": 10.329395497247365,
+        "height": 4.433637507503934
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "d38a9aa7-1ede-450d-9981-95638deaaa47",
+      "room_a_id": "584b10fe-6815-4a35-9295-99b97c4157cf",
+      "room_b_id": "0689fdd8-dba9-43a6-b376-d7fbb8f9c00a",
+      "position": {
+        "x": 1.6077561307569048,
+        "y": 4.622403323486711
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "6fc5eb66-6738-40fd-87b2-8d3a744963e4",
+      "room_a_id": "584b10fe-6815-4a35-9295-99b97c4157cf",
+      "room_b_id": "869d2d97-94ca-4a4e-914b-e9ba138f57f0",
+      "position": {
+        "x": 4.15780786990542,
+        "y": 3.5461495899737363
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "0689fdd8-dba9-43a6-b376-d7fbb8f9c00a",
+  "metadata": {
+    "target_area": 93.54342738252306,
+    "actual_area": 93.54342738252305,
+    "room_count": 3,
+    "door_count": 2
+  }
+}
