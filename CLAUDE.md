@@ -36,6 +36,33 @@ Can a vision-language model infer the type of an unlabeled room based solely on 
 
 ---
 
+## Quick Start for Carlos
+
+**Get running in 2 minutes:**
+
+```bash
+# 1. Set up environment
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+
+# 2. Run mini experiment (generates 10 floorplans, renders images)
+python scripts/run_mini_experiment.py
+
+# 3. Inspect a specific floorplan
+python scripts/inspect_sample.py --house-id <ID-from-output>
+
+# 4. (Optional) With API key, the mini experiment will automatically run inference
+export NVIDIA_API_KEY='your-key-here'
+python scripts/run_mini_experiment.py
+```
+
+**What to look at after running:**
+- `data/mini_experiment/images/*.png` - Visual floorplans
+- `data/mini_experiment/floorplans/*.json` - Metadata
+- `data/mini_experiment/predictions.csv` - Model guesses (if API key set)
+
+---
+
 ## Coding Style & Preferences
 
 ### Language & Version
