@@ -1,0 +1,78 @@
+{
+  "id": "7aca369c-967e-4c03-a463-7bbf4a9279ab",
+  "seed": 48,
+  "region": "US_suburb",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "2671fa18-48a3-4755-ac87-47df05eebe61",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.295721971574961,
+        "height": 6.83632621984186
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "cc5628ac-3a64-432d-ac99-e03ef17e3df8",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 5.295721971574961,
+        "y": 0,
+        "width": 3.7626978792679218,
+        "height": 2.5778920621343833
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "48a8012c-113f-4b82-bd14-801aebed2e74",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 5.295721971574961,
+        "y": 2.5778920621343833,
+        "width": 3.7626978792679218,
+        "height": 4.258434157707477
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "fe307010-bbfc-48e8-90c1-fef23dcd4138",
+      "room_a_id": "2671fa18-48a3-4755-ac87-47df05eebe61",
+      "room_b_id": "cc5628ac-3a64-432d-ac99-e03ef17e3df8",
+      "position": {
+        "x": 5.295721971574961,
+        "y": 1.7730592092258417
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "5cc8b49b-cb8d-4d72-b6fc-0d0a9d94ddf7",
+      "room_a_id": "2671fa18-48a3-4755-ac87-47df05eebe61",
+      "room_b_id": "48a8012c-113f-4b82-bd14-801aebed2e74",
+      "position": {
+        "x": 5.295721971574961,
+        "y": 3.796050561252684
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "48a8012c-113f-4b82-bd14-801aebed2e74",
+  "metadata": {
+    "target_area": 61.926313136653185,
+    "actual_area": 61.92631313665319,
+    "room_count": 3,
+    "door_count": 2
+  }
+}
