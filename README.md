@@ -15,6 +15,24 @@ This project generates thousands of synthetic residential floorplans programmati
 
 ## Quick Start
 
+### 0. Local-Only Test (No API Required)
+
+**Quick verification that the pipeline works (no network required):**
+
+```bash
+# Test generation and rendering without calling NVIDIA API
+chmod +x scripts/test_local.sh
+./scripts/test_local.sh
+```
+
+This will:
+- Generate 5 synthetic floorplans in ~2 seconds
+- Render them to PNG images
+- Save metadata as JSON files
+- Verify everything works locally
+
+View the generated images in `data/test_local/images/` to see the system in action.
+
 ### 1. Installation
 
 ```bash
