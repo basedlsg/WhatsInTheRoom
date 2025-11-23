@@ -68,11 +68,30 @@ def run_inference_batch(
     predictions = []
     errors = []
 
+    # Load existing predictions if output file exists (for resume capability)
+    completed_ids = set()
+    if os.path.exists(output_file):
+        try:
+            import pandas as pd
+            existing_df = pd.read_parquet(output_file)
+            if 'floorplan_id' in existing_df.columns:
+                completed_ids = set(existing_df['floorplan_id'].tolist())
+                print(f"Found {len(completed_ids)} existing predictions, resuming...")
+        except Exception as e:
+            print(f"Note: Could not load existing predictions: {e}")
+
     print(f"\nRunning inference on {len(floorplans)} floorplans...\n")
 
+    SAVE_INTERVAL = 50  # Save every 50 predictions
+
     with tqdm(total=len(floorplans), desc="Processing") as pbar:
-        for floorplan in floorplans:
+        for i, floorplan in enumerate(floorplans):
             try:
+                # Skip if already processed
+                if floorplan.id in completed_ids:
+                    pbar.update(1)
+                    continue
+
                 # Check if image exists
                 image_path = get_image_path(floorplan.id, image_dir)
 
@@ -108,6 +127,19 @@ def run_inference_batch(
 
                 predictions.append(prediction)
 
+                # Save incrementally every SAVE_INTERVAL predictions
+                if len(predictions) > 0 and len(predictions) % SAVE_INTERVAL == 0:
+                    print(f"\nSaving checkpoint ({len(predictions)} predictions)...")
+                    save_predictions(predictions, output_file, append=True)
+                    predictions = []  # Clear to save memory
+                    # Reload completed IDs
+                    try:
+                        import pandas as pd
+                        existing_df = pd.read_parquet(output_file)
+                        completed_ids = set(existing_df['floorplan_id'].tolist())
+                    except:
+                        pass
+
                 # Rate limiting delay
                 if batch_delay > 0:
                     time.sleep(batch_delay)
@@ -118,10 +150,10 @@ def run_inference_batch(
 
             pbar.update(1)
 
-    # Save results
+    # Save any remaining results
     if predictions:
-        print(f"\nSaving {len(predictions)} predictions to {output_file}...")
-        save_predictions(predictions, output_file)
+        print(f"\nSaving final {len(predictions)} predictions to {output_file}...")
+        save_predictions(predictions, output_file, append=True)
         print("Predictions saved successfully!")
 
     # Report errors
