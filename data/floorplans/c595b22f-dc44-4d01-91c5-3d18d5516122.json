@@ -1,0 +1,78 @@
+{
+  "id": "c595b22f-dc44-4d01-91c5-3d18d5516122",
+  "seed": 4807,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "9f79ef81-1a16-4fb3-a3a8-7c2dd307e9e6",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.301458952516295,
+        "height": 7.1491469614758625
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "80f0ce93-c570-492e-a3e6-1f19b963cda2",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 4.301458952516295,
+        "y": 0,
+        "width": 3.5337636999750224,
+        "height": 7.1491469614758625
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "c9a308b3-f0dc-4032-8612-230bf5382fc3",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 7.835222652491318,
+        "y": 0,
+        "width": 3.2432407199092133,
+        "height": 7.1491469614758625
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "76601d60-b380-4c88-8c8d-e2bc6a0f366c",
+      "room_a_id": "9f79ef81-1a16-4fb3-a3a8-7c2dd307e9e6",
+      "room_b_id": "80f0ce93-c570-492e-a3e6-1f19b963cda2",
+      "position": {
+        "x": 4.301458952516295,
+        "y": 3.4864903371187363
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "0b259627-011d-4068-abcc-150f27efee40",
+      "room_a_id": "80f0ce93-c570-492e-a3e6-1f19b963cda2",
+      "room_b_id": "c9a308b3-f0dc-4032-8612-230bf5382fc3",
+      "position": {
+        "x": 7.835222652491318,
+        "y": 1.1255627998731033
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "80f0ce93-c570-492e-a3e6-1f19b963cda2",
+  "metadata": {
+    "target_area": 79.2015627566189,
+    "actual_area": 79.2015627566189,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

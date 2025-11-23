@@ -1,0 +1,78 @@
+{
+  "id": "3c028bb3-8736-405d-bd3d-4904ce6c0bc1",
+  "seed": 3103,
+  "region": "US_suburb",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "732de7d4-f4f4-401a-88bc-e8595035ad20",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 8.489455419881933,
+        "height": 3.4762637056280354
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "40df2982-6c56-4abc-9da6-3252b5f43690",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 3.4762637056280354,
+        "width": 5.7097536940455695,
+        "height": 3.2493466194756957
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "1d0a24a1-ad3e-4ce9-b5f5-a968010374fc",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 5.7097536940455695,
+        "y": 3.4762637056280354,
+        "width": 2.7797017258363637,
+        "height": 3.2493466194756957
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "8fa2aa38-5a8e-4f3d-b8ec-042777654ad3",
+      "room_a_id": "732de7d4-f4f4-401a-88bc-e8595035ad20",
+      "room_b_id": "1d0a24a1-ad3e-4ce9-b5f5-a968010374fc",
+      "position": {
+        "x": 7.905932744422416,
+        "y": 3.4762637056280354
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "8073828c-6a81-4ed7-a99a-65df5bcabdbd",
+      "room_a_id": "40df2982-6c56-4abc-9da6-3252b5f43690",
+      "room_b_id": "1d0a24a1-ad3e-4ce9-b5f5-a968010374fc",
+      "position": {
+        "x": 5.7097536940455695,
+        "y": 5.7718232694121605
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "1d0a24a1-ad3e-4ce9-b5f5-a968010374fc",
+  "metadata": {
+    "target_area": 57.09676902646576,
+    "actual_area": 57.09676902646576,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

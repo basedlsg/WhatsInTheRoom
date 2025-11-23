@@ -1,0 +1,150 @@
+{
+  "id": "01706b36-18cf-491b-9f82-784cef7c3e8d",
+  "seed": 4999,
+  "region": "Australian_house",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "2f1254a0-377f-4950-b897-a31603dbc8ad",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.395385742110008,
+        "height": 12.454910469031265
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "3039ee47-6031-4d15-82c5-d43eaa1f58ab",
+      "room_type": "garage",
+      "bounds": {
+        "x": 6.395385742110008,
+        "y": 0,
+        "width": 5.040322840248807,
+        "height": 7.87122529624651
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "1d40d1b4-ec2e-44f3-958f-323cd04bdeba",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 11.435708582358815,
+        "y": 0,
+        "width": 5.312462352458441,
+        "height": 6.775686615519588
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "3fe6174b-7118-4576-a0a3-5d9f4360b12d",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 11.435708582358815,
+        "y": 6.775686615519588,
+        "width": 5.312462352458441,
+        "height": 2.6780160719448345
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "8a0caefe-6a01-45fb-8860-a3c54f20488b",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.395385742110008,
+        "y": 7.87122529624651,
+        "width": 5.040322840248807,
+        "height": 4.583685172784755
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "cbd90e72-bf30-4536-b518-42c2f51d47dc",
+      "room_type": "dining_room",
+      "bounds": {
+        "x": 11.435708582358815,
+        "y": 9.453702687464421,
+        "width": 5.312462352458441,
+        "height": 3.001207781566843
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "04655f1c-eaae-4d1d-bc7b-aae7215db6e2",
+      "room_a_id": "3fe6174b-7118-4576-a0a3-5d9f4360b12d",
+      "room_b_id": "cbd90e72-bf30-4536-b518-42c2f51d47dc",
+      "position": {
+        "x": 15.514811589930886,
+        "y": 9.453702687464421
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "32fd19ed-0f46-4fd2-9262-d9c444cfcc53",
+      "room_a_id": "3039ee47-6031-4d15-82c5-d43eaa1f58ab",
+      "room_b_id": "8a0caefe-6a01-45fb-8860-a3c54f20488b",
+      "position": {
+        "x": 10.22539491500902,
+        "y": 7.87122529624651
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "c241a771-7712-42b2-b415-4400d59f8564",
+      "room_a_id": "1d40d1b4-ec2e-44f3-958f-323cd04bdeba",
+      "room_b_id": "3fe6174b-7118-4576-a0a3-5d9f4360b12d",
+      "position": {
+        "x": 13.675422972839552,
+        "y": 6.775686615519588
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "2751bff3-f6db-4714-8139-f08e90a65c56",
+      "room_a_id": "8a0caefe-6a01-45fb-8860-a3c54f20488b",
+      "room_b_id": "cbd90e72-bf30-4536-b518-42c2f51d47dc",
+      "position": {
+        "x": 11.435708582358815,
+        "y": 10.7535228281061
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "9778b162-c401-4c75-bcda-5d9703cf4aef",
+      "room_a_id": "2f1254a0-377f-4950-b897-a31603dbc8ad",
+      "room_b_id": "3039ee47-6031-4d15-82c5-d43eaa1f58ab",
+      "position": {
+        "x": 6.395385742110008,
+        "y": 2.9743597154395274
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "1d40d1b4-ec2e-44f3-958f-323cd04bdeba",
+  "metadata": {
+    "target_area": 208.5969695131806,
+    "actual_area": 208.59696951318062,
+    "room_count": 6,
+    "door_count": 5
+  }
+}

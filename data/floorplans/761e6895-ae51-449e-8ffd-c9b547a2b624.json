@@ -1,0 +1,137 @@
+{
+  "id": "761e6895-ae51-449e-8ffd-c9b547a2b624",
+  "seed": 4978,
+  "region": "Australian_house",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "07360b3a-6162-4b24-8527-bdcfdae379a6",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.46426115858149,
+        "height": 12.645786401202518
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c8c75e93-8e29-43fa-b396-ae5da857cc7d",
+      "room_type": "garage",
+      "bounds": {
+        "x": 7.46426115858149,
+        "y": 0,
+        "width": 12.055794464558009,
+        "height": 5.80390896991678
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "1f5d5cf5-2e94-4418-87a8-bb97fd5b8e03",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 7.46426115858149,
+        "y": 5.80390896991678,
+        "width": 5.43008195443424,
+        "height": 6.841877431285738
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "dcc93060-3f06-43cf-8a58-1b25e8dadf98",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 12.89434311301573,
+        "y": 5.80390896991678,
+        "width": 3.559054702456966,
+        "height": 6.841877431285738
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "a7ad9613-c872-424b-96d0-051d3cda7fdd",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 16.453397815472695,
+        "y": 5.80390896991678,
+        "width": 3.066657807666803,
+        "height": 6.841877431285738
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "ed59f564-4225-40e6-b40e-ddc73c828bc7",
+      "room_a_id": "07360b3a-6162-4b24-8527-bdcfdae379a6",
+      "room_b_id": "1f5d5cf5-2e94-4418-87a8-bb97fd5b8e03",
+      "position": {
+        "x": 7.46426115858149,
+        "y": 8.928772900492072
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "5e6f1434-33e2-4cf7-be23-64e98383f687",
+      "room_a_id": "c8c75e93-8e29-43fa-b396-ae5da857cc7d",
+      "room_b_id": "dcc93060-3f06-43cf-8a58-1b25e8dadf98",
+      "position": {
+        "x": 14.911594065132919,
+        "y": 5.80390896991678
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "c2d97c1d-ab74-4252-9d79-21e97422ab74",
+      "room_a_id": "c8c75e93-8e29-43fa-b396-ae5da857cc7d",
+      "room_b_id": "a7ad9613-c872-424b-96d0-051d3cda7fdd",
+      "position": {
+        "x": 18.71412371995425,
+        "y": 5.80390896991678
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "2c47e02f-c333-451a-8d4c-22e1a4cbc06d",
+      "room_a_id": "1f5d5cf5-2e94-4418-87a8-bb97fd5b8e03",
+      "room_b_id": "dcc93060-3f06-43cf-8a58-1b25e8dadf98",
+      "position": {
+        "x": 12.89434311301573,
+        "y": 6.953821628914549
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "2529e23e-127c-44ab-9d2d-8f6fc454b7cf",
+      "room_a_id": "dcc93060-3f06-43cf-8a58-1b25e8dadf98",
+      "room_b_id": "a7ad9613-c872-424b-96d0-051d3cda7fdd",
+      "position": {
+        "x": 16.453397815472695,
+        "y": 10.21070849586876
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "a7ad9613-c872-424b-96d0-051d3cda7fdd",
+  "metadata": {
+    "target_area": 246.8464539498142,
+    "actual_area": 246.8464539498142,
+    "room_count": 5,
+    "door_count": 5
+  }
+}

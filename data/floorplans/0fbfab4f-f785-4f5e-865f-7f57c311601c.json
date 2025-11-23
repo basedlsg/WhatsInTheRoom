@@ -1,0 +1,78 @@
+{
+  "id": "0fbfab4f-f785-4f5e-865f-7f57c311601c",
+  "seed": 4818,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "12733a8d-9c1b-4f1c-8af1-6bbd5cbfefbe",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.867747374612259,
+        "height": 3.421161775761477
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "79696100-c6eb-48e2-8fc1-2291c0f1b7da",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 3.421161775761477,
+        "width": 5.0419628530442075,
+        "height": 3.1683511913802143
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "998edd53-5d02-4add-82fd-df34123e038c",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 5.0419628530442075,
+        "y": 3.421161775761477,
+        "width": 2.8257845215680515,
+        "height": 3.1683511913802143
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "c130257f-e16a-42d8-85d7-e7a90ade0894",
+      "room_a_id": "12733a8d-9c1b-4f1c-8af1-6bbd5cbfefbe",
+      "room_b_id": "998edd53-5d02-4add-82fd-df34123e038c",
+      "position": {
+        "x": 5.8134710601916835,
+        "y": 3.421161775761477
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "f766ed12-7ced-42aa-8c6b-ddd7162c684c",
+      "room_a_id": "12733a8d-9c1b-4f1c-8af1-6bbd5cbfefbe",
+      "room_b_id": "79696100-c6eb-48e2-8fc1-2291c0f1b7da",
+      "position": {
+        "x": 2.6690708841637516,
+        "y": 3.421161775761477
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "998edd53-5d02-4add-82fd-df34123e038c",
+  "metadata": {
+    "target_area": 51.84462334720247,
+    "actual_area": 51.844623347202486,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

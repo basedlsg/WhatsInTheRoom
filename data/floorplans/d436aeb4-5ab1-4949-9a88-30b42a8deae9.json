@@ -1,0 +1,78 @@
+{
+  "id": "d436aeb4-5ab1-4949-9a88-30b42a8deae9",
+  "seed": 4037,
+  "region": "European_old_town",
+  "size_category": "micro",
+  "rooms": [
+    {
+      "id": "2a589a84-ef4f-4020-aacb-4d1545c8b956",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.049817115817689,
+        "height": 5.011637977856319
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "adc2dee3-36a3-4f59-bb36-193367207418",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 4.049817115817689,
+        "y": 0,
+        "width": 2.6688471861063388,
+        "height": 1.8412142068503483
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "178ad5aa-4863-4d2e-84e4-0f12feb05edc",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 4.049817115817689,
+        "y": 1.8412142068503483,
+        "width": 2.6688471861063388,
+        "height": 3.1704237710059706
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "40655fde-1406-4683-b60d-5b361427e936",
+      "room_a_id": "2a589a84-ef4f-4020-aacb-4d1545c8b956",
+      "room_b_id": "adc2dee3-36a3-4f59-bb36-193367207418",
+      "position": {
+        "x": 4.049817115817689,
+        "y": 0.8325952380207561
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "c5743a04-f180-4dae-b971-074f5a5ca556",
+      "room_a_id": "2a589a84-ef4f-4020-aacb-4d1545c8b956",
+      "room_b_id": "178ad5aa-4863-4d2e-84e4-0f12feb05edc",
+      "position": {
+        "x": 4.049817115817689,
+        "y": 2.4369915528388697
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "178ad5aa-4863-4d2e-84e4-0f12feb05edc",
+  "metadata": {
+    "target_area": 33.671513175989965,
+    "actual_area": 33.67151317598997,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

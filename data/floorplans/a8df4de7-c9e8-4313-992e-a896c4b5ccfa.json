@@ -1,0 +1,78 @@
+{
+  "id": "a8df4de7-c9e8-4313-992e-a896c4b5ccfa",
+  "seed": 4801,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "80d6a8d8-ebc8-405a-9538-daff958090b8",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.654831806185746,
+        "height": 3.7163897942700554
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "05be7397-098e-489e-b0ec-e209cf3f30e8",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 3.7163897942700554,
+        "width": 2.5029661421310103,
+        "height": 2.82235275650142
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b7c479da-fef3-44e1-9f84-4b9db0d1934e",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 2.5029661421310103,
+        "y": 3.7163897942700554,
+        "width": 5.151865664054736,
+        "height": 2.82235275650142
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "32de1b5a-74e8-4ed1-9e95-20a79b40d1bd",
+      "room_a_id": "80d6a8d8-ebc8-405a-9538-daff958090b8",
+      "room_b_id": "05be7397-098e-489e-b0ec-e209cf3f30e8",
+      "position": {
+        "x": 0.768416172048399,
+        "y": 3.7163897942700554
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "087ddf0a-8c54-40b4-9043-5ce3400cfba9",
+      "room_a_id": "80d6a8d8-ebc8-405a-9538-daff958090b8",
+      "room_b_id": "b7c479da-fef3-44e1-9f84-4b9db0d1934e",
+      "position": {
+        "x": 3.9794273905979614,
+        "y": 3.7163897942700554
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "b7c479da-fef3-44e1-9f84-4b9db0d1934e",
+  "metadata": {
+    "target_area": 50.05297445010561,
+    "actual_area": 50.05297445010561,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

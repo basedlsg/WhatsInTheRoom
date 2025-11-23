@@ -1,0 +1,89 @@
+{
+  "id": "0556cdfc-220f-4c67-9975-4a196ba7c403",
+  "seed": 4988,
+  "region": "Australian_house",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "86d4367f-ac4b-40e3-9fad-b868b248eaa4",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 9.152567146077338,
+        "height": 6.19009697281758
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "708c0e67-c05c-46a3-9d3a-9e741a6e620d",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 9.152567146077338,
+        "y": 0,
+        "width": 10.01858557622488,
+        "height": 12.624640726175562
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "e67b6183-a18b-4dd5-99b1-79c884f5af35",
+      "room_type": "garage",
+      "bounds": {
+        "x": 0,
+        "y": 6.19009697281758,
+        "width": 9.152567146077338,
+        "height": 6.434543753357982
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "099b8c5a-d919-42ec-b248-b47d5bb11d92",
+      "room_a_id": "86d4367f-ac4b-40e3-9fad-b868b248eaa4",
+      "room_b_id": "708c0e67-c05c-46a3-9d3a-9e741a6e620d",
+      "position": {
+        "x": 9.152567146077338,
+        "y": 4.94485629336178
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "9c23d6b9-d68b-4cda-8084-f7b6779679ba",
+      "room_a_id": "86d4367f-ac4b-40e3-9fad-b868b248eaa4",
+      "room_b_id": "e67b6183-a18b-4dd5-99b1-79c884f5af35",
+      "position": {
+        "x": 8.056880172044991,
+        "y": 6.19009697281758
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "4c979750-bfb0-4452-9b7d-9302e6b004ee",
+      "room_a_id": "708c0e67-c05c-46a3-9d3a-9e741a6e620d",
+      "room_b_id": "e67b6183-a18b-4dd5-99b1-79c884f5af35",
+      "position": {
+        "x": 9.152567146077338,
+        "y": 10.059509424926215
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "708c0e67-c05c-46a3-9d3a-9e741a6e620d",
+  "metadata": {
+    "target_area": 242.02891542570805,
+    "actual_area": 242.02891542570808,
+    "room_count": 3,
+    "door_count": 3
+  }
+}

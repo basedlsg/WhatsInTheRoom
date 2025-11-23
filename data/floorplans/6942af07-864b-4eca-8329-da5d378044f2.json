@@ -1,0 +1,78 @@
+{
+  "id": "6942af07-864b-4eca-8329-da5d378044f2",
+  "seed": 3136,
+  "region": "US_suburb",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "0f503dfc-380e-404f-95d8-d784d034cd7c",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 2.632087522220976,
+        "height": 6.347302768031061
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "f7ab0aeb-e8d8-4f9a-8142-f15ed1c86002",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 2.632087522220976,
+        "y": 0,
+        "width": 4.298261243682653,
+        "height": 3.8408986078915066
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b34a005c-7dc6-4edc-98e8-3d45490741ba",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 2.632087522220976,
+        "y": 3.8408986078915066,
+        "width": 4.298261243682653,
+        "height": 2.5064041601395544
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "8340ec38-3840-4627-b65d-8044f77c33d1",
+      "room_a_id": "0f503dfc-380e-404f-95d8-d784d034cd7c",
+      "room_b_id": "b34a005c-7dc6-4edc-98e8-3d45490741ba",
+      "position": {
+        "x": 2.632087522220976,
+        "y": 5.071033760484535
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "d139de3e-59fe-4e6d-bfea-963ae7ee5539",
+      "room_a_id": "f7ab0aeb-e8d8-4f9a-8142-f15ed1c86002",
+      "room_b_id": "b34a005c-7dc6-4edc-98e8-3d45490741ba",
+      "position": {
+        "x": 3.2237939546246794,
+        "y": 3.8408986078915066
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "b34a005c-7dc6-4edc-98e8-3d45490741ba",
+  "metadata": {
+    "target_area": 43.98902190524075,
+    "actual_area": 43.98902190524075,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

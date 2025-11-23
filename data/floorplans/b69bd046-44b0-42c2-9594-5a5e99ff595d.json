@@ -1,0 +1,148 @@
+{
+  "id": "b69bd046-44b0-42c2-9594-5a5e99ff595d",
+  "seed": 3931,
+  "region": "Chinese_city_apartment",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "b8e7cdd8-f5a6-4afc-a582-2ef5b2483884",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.921822789105755,
+        "height": 3.96633333129813
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "ee16565d-a458-451c-9123-8aa7987e0d55",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 6.921822789105755,
+        "y": 0,
+        "width": 10.944992260123467,
+        "height": 8.501227799625203
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "6c62c6f5-16b2-47ec-abcc-9807bc3a349e",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 3.96633333129813,
+        "width": 6.921822789105755,
+        "height": 8.572343010676573
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "9d9c745f-7a8c-4c99-aa25-827940ef5050",
+      "room_type": "balcony",
+      "bounds": {
+        "x": 6.921822789105755,
+        "y": 8.501227799625203,
+        "width": 6.180714387893833,
+        "height": 4.0374485423495
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "cf2b4919-1d31-4039-a9fb-c4d5f962ad68",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 13.102537176999586,
+        "y": 8.501227799625203,
+        "width": 4.764277872229634,
+        "height": 4.0374485423495
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "54133df6-f12c-4da0-b5b1-27d17235666b",
+      "room_a_id": "b8e7cdd8-f5a6-4afc-a582-2ef5b2483884",
+      "room_b_id": "ee16565d-a458-451c-9123-8aa7987e0d55",
+      "position": {
+        "x": 6.921822789105755,
+        "y": 2.6588677945016674
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "6da73e3e-36c0-43e3-8128-f370be863666",
+      "room_a_id": "ee16565d-a458-451c-9123-8aa7987e0d55",
+      "room_b_id": "9d9c745f-7a8c-4c99-aa25-827940ef5050",
+      "position": {
+        "x": 9.863652101384133,
+        "y": 8.501227799625203
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "a23330ed-5ca4-403f-8d11-8402191761d2",
+      "room_a_id": "6c62c6f5-16b2-47ec-abcc-9807bc3a349e",
+      "room_b_id": "9d9c745f-7a8c-4c99-aa25-827940ef5050",
+      "position": {
+        "x": 6.921822789105755,
+        "y": 10.696464352104961
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "88fccb98-98d2-4e6b-bba4-44b509c54bbb",
+      "room_a_id": "b8e7cdd8-f5a6-4afc-a582-2ef5b2483884",
+      "room_b_id": "6c62c6f5-16b2-47ec-abcc-9807bc3a349e",
+      "position": {
+        "x": 1.5521336049614094,
+        "y": 3.96633333129813
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "7ae8eba9-edb6-4592-ad8a-211123db73ac",
+      "room_a_id": "ee16565d-a458-451c-9123-8aa7987e0d55",
+      "room_b_id": "6c62c6f5-16b2-47ec-abcc-9807bc3a349e",
+      "position": {
+        "x": 6.921822789105755,
+        "y": 7.463131751980631
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "80af1fa1-f909-4365-b277-ad2c159deaf8",
+      "room_a_id": "ee16565d-a458-451c-9123-8aa7987e0d55",
+      "room_b_id": "cf2b4919-1d31-4039-a9fb-c4d5f962ad68",
+      "position": {
+        "x": 14.27025065837651,
+        "y": 8.501227799625203
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "6c62c6f5-16b2-47ec-abcc-9807bc3a349e",
+  "metadata": {
+    "target_area": 224.02621116420804,
+    "actual_area": 224.02621116420806,
+    "room_count": 5,
+    "door_count": 6
+  }
+}

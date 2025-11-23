@@ -1,0 +1,78 @@
+{
+  "id": "e947fe62-6494-43c0-84ce-2609d05302d4",
+  "seed": 4822,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "bb83137d-5280-4bcd-8a40-6307a91cdaa7",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 3.5686036388773674,
+        "height": 7.083038803285006
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c02cc086-0c4c-49ae-bad7-9db33b088b42",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.5686036388773674,
+        "y": 0,
+        "width": 7.021415918494168,
+        "height": 2.7106471491611424
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "e87aa4b2-569a-438d-8649-feaf0a7906f5",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 3.5686036388773674,
+        "y": 2.7106471491611424,
+        "width": 7.021415918494168,
+        "height": 4.372391654123863
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "e8815947-b60b-4574-9672-c857c8104a05",
+      "room_a_id": "c02cc086-0c4c-49ae-bad7-9db33b088b42",
+      "room_b_id": "e87aa4b2-569a-438d-8649-feaf0a7906f5",
+      "position": {
+        "x": 8.670109170779195,
+        "y": 2.7106471491611424
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "ce298ae7-8b21-4568-b9a4-358715ea78ff",
+      "room_a_id": "bb83137d-5280-4bcd-8a40-6307a91cdaa7",
+      "room_b_id": "c02cc086-0c4c-49ae-bad7-9db33b088b42",
+      "position": {
+        "x": 3.5686036388773674,
+        "y": 1.36324735758493
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "e87aa4b2-569a-438d-8649-feaf0a7906f5",
+  "metadata": {
+    "target_area": 75.00951945240969,
+    "actual_area": 75.00951945240968,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

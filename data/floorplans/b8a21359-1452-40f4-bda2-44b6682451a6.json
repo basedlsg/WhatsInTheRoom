@@ -1,0 +1,54 @@
+{
+  "id": "b8a21359-1452-40f4-bda2-44b6682451a6",
+  "seed": 3332,
+  "region": "US_suburb",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "6eeb0b85-feeb-4f3b-8acb-83c8a8109c26",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.0816215039637065,
+        "height": 12.109047394043017
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "872f6f15-12fd-4e1a-9e14-1063b8731542",
+      "room_type": "garage",
+      "bounds": {
+        "x": 7.0816215039637065,
+        "y": 0,
+        "width": 6.172977538394148,
+        "height": 12.109047394043017
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "c3ef1db6-cdeb-4fda-90e2-ee249b9ed8b4",
+      "room_a_id": "6eeb0b85-feeb-4f3b-8acb-83c8a8109c26",
+      "room_b_id": "872f6f15-12fd-4e1a-9e14-1063b8731542",
+      "position": {
+        "x": 7.0816215039637065,
+        "y": 9.474267017141159
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "872f6f15-12fd-4e1a-9e14-1063b8731542",
+  "metadata": {
+    "target_area": 160.50056799294845,
+    "actual_area": 160.50056799294845,
+    "room_count": 2,
+    "door_count": 1
+  }
+}

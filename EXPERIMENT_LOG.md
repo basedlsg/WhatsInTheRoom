@@ -2,17 +2,18 @@
 
 ## Experiment Configuration
 
-**Date:** 2025-11-22
+**Date:** 2025-11-22-23
 **Goal:** Generate maximum practical dataset to analyze VLM spatial reasoning
 
-### Dataset Specifications
+### Dataset Specifications - EXPANDED TO MASSIVE SCALE
 
-- **Target:** 1000 floorplans
-- **Generated:** 783 valid floorplans (78.3% success rate)
-- **Seed:** 2000
+- **Initial Target:** 1000 floorplans → **Expanded to 3000 floorplans**
+- **Generated:** 2,391 valid floorplans (79.7% average success rate)
+  - First batch: 783 floorplans (seeds 2000-2999, 78.3% success)
+  - Second batch: 1,608 floorplans (seeds 3000-4999, 80.4% success)
 - **Regions:** 6 (US_suburb, Modern_urban, Chinese_city_apartment, European_old_town, Japanese_apartment, Australian_house)
 - **Size Categories:** 4 (micro, small, medium, large)
-- **Stratification:** ~33 samples per region-size combination
+- **Stratification:** ~100 samples per region-size combination (24 combinations)
 
 ### Generation Performance
 
@@ -31,20 +32,23 @@
 
 ### Inference Performance (In Progress)
 
-- **Status:** Running
-- **Progress:** 35/783 (4.5%) after 2.5 minutes
-- **Average time:** ~4 seconds/sample
-- **Estimated completion:** ~42 minutes remaining
-- **Total estimated time:** ~45 minutes
+- **Status:** Running on full expanded dataset
+- **Progress:** 34/2391 (1.4%) after 2.5 minutes
+- **Average time:** ~5 seconds/sample (varies with API response)
+- **Estimated completion:** ~3.3 hours remaining
+- **Total estimated time:** ~3.5 hours for complete dataset
 
 ## Expected Outcomes
 
 ### Statistical Power
 
 With baseline accuracy of 9.21% from previous 76-sample run:
-- Expected correct predictions: ~72/783
-- 10x larger sample size for robust analysis
-- Better confidence intervals for per-region and per-size breakdowns
+- Expected correct predictions: ~220/2391 (if accuracy holds)
+- **31x larger sample size** than initial pilot study
+- **3x larger than initial maximum target**
+- Extremely robust statistical power for all analyses
+- Narrow confidence intervals for per-region and per-size breakdowns
+- Sufficient samples to detect subtle patterns in failure modes
 
 ### Analysis Capabilities
 
@@ -83,14 +87,14 @@ This dataset will enable:
 
 ```
 data/
-├── floorplans/          # 783 JSON metadata files (~2KB each)
-├── images/              # 783 PNG renderings (~10KB each)
+├── floorplans/          # 2,391 JSON metadata files (~2KB each)
+├── images/              # 2,391 PNG renderings (~10KB each)
 ├── results/
 │   └── predictions.parquet  # All predictions with reasoning
 └── analysis/            # Plots and visualizations (generated post-inference)
 ```
 
-**Total dataset size:** ~9.4 MB (1.9 MB JSON + 7.5 MB PNG)
+**Total dataset size:** ~28.7 MB (5.8 MB JSON + 22.9 MB PNG + predictions)
 
 ## Notes
 

@@ -1,0 +1,78 @@
+{
+  "id": "7e71c8a0-d21b-45b8-ae0c-84f91c26bc08",
+  "seed": 4485,
+  "region": "Japanese_apartment",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "41af0366-4847-4224-8625-dce90095c479",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.6688530958927,
+        "height": 4.605862207399635
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "11c908fe-0bdc-4895-bdc1-43ff4cd6577f",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.6688530958927,
+        "y": 0,
+        "width": 2.858148664584199,
+        "height": 6.919025119124087
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "56fea6cb-b1ae-4b4a-9048-9643ddcc8724",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 4.605862207399635,
+        "width": 6.6688530958927,
+        "height": 2.3131629117244517
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "cc6a5075-7723-438b-ae95-d908421a56f8",
+      "room_a_id": "41af0366-4847-4224-8625-dce90095c479",
+      "room_b_id": "56fea6cb-b1ae-4b4a-9048-9643ddcc8724",
+      "position": {
+        "x": 5.610441670833683,
+        "y": 4.605862207399635
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "f8a19be4-59a2-4db3-bd27-efd1de319671",
+      "room_a_id": "41af0366-4847-4224-8625-dce90095c479",
+      "room_b_id": "11c908fe-0bdc-4895-bdc1-43ff4cd6577f",
+      "position": {
+        "x": 6.6688530958927,
+        "y": 1.2255651963942347
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "11c908fe-0bdc-4895-bdc1-43ff4cd6577f",
+  "metadata": {
+    "target_area": 65.91756449067907,
+    "actual_area": 65.91756449067907,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

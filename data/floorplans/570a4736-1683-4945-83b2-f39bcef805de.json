@@ -1,0 +1,78 @@
+{
+  "id": "570a4736-1683-4945-83b2-f39bcef805de",
+  "seed": 4029,
+  "region": "European_old_town",
+  "size_category": "micro",
+  "rooms": [
+    {
+      "id": "0cfd0089-bdbb-41f9-944f-70ee0cf52be3",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 3.138920941986943,
+        "height": 5.045708709425308
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "55e03eb6-eac2-41de-8e07-6dc13d4afea5",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 3.138920941986943,
+        "y": 0,
+        "width": 4.3097685760258155,
+        "height": 2.975219971241817
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b40ca8b1-7f3f-4806-8a8c-1958ed2aa832",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.138920941986943,
+        "y": 2.975219971241817,
+        "width": 4.3097685760258155,
+        "height": 2.0704887381834913
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "a6967fca-e036-44f8-98d9-9a86176033ed",
+      "room_a_id": "0cfd0089-bdbb-41f9-944f-70ee0cf52be3",
+      "room_b_id": "b40ca8b1-7f3f-4806-8a8c-1958ed2aa832",
+      "position": {
+        "x": 3.138920941986943,
+        "y": 4.2503970861197615
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "1ce1f8ce-6f65-4c33-ac2a-695d12046600",
+      "room_a_id": "55e03eb6-eac2-41de-8e07-6dc13d4afea5",
+      "room_b_id": "b40ca8b1-7f3f-4806-8a8c-1958ed2aa832",
+      "position": {
+        "x": 3.6413414811601177,
+        "y": 2.975219971241817
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "b40ca8b1-7f3f-4806-8a8c-1958ed2aa832",
+  "metadata": {
+    "target_area": 37.58391757484197,
+    "actual_area": 37.583917574841976,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "33a92864-32c3-465f-ab8b-77468ea7f0a2",
+  "seed": 3310,
+  "region": "US_suburb",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "6a6a5a57-6f06-4a1f-bd3b-6372d1513861",
+      "room_type": "garage",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 9.123610060673123,
+        "height": 5.572499406529265
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "e7179f86-7fed-4388-916d-98bab0370a1b",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 9.123610060673123,
+        "y": 0,
+        "width": 5.942636980838071,
+        "height": 5.572499406529265
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "71e4fab1-606e-4ce1-8cca-30682d735d05",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 5.572499406529265,
+        "width": 15.066247041511193,
+        "height": 6.734589794164386
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "a653f924-b121-4097-8ed5-a39e0a88bf82",
+      "room_a_id": "6a6a5a57-6f06-4a1f-bd3b-6372d1513861",
+      "room_b_id": "71e4fab1-606e-4ce1-8cca-30682d735d05",
+      "position": {
+        "x": 1.7093340307083476,
+        "y": 5.572499406529265
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "9d83a785-6ef9-4826-add8-14870efefdd0",
+      "room_a_id": "6a6a5a57-6f06-4a1f-bd3b-6372d1513861",
+      "room_b_id": "e7179f86-7fed-4388-916d-98bab0370a1b",
+      "position": {
+        "x": 9.123610060673123,
+        "y": 2.9657169907940855
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "e7179f86-7fed-4388-916d-98bab0370a1b",
+  "metadata": {
+    "target_area": 185.42164625956505,
+    "actual_area": 185.42164625956508,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

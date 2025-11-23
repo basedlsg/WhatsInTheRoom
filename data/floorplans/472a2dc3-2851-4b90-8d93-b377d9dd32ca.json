@@ -1,0 +1,102 @@
+{
+  "id": "472a2dc3-2851-4b90-8d93-b377d9dd32ca",
+  "seed": 3900,
+  "region": "Chinese_city_apartment",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "4a3fa151-1e47-4085-857e-932a9d9195bd",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.698135308398066,
+        "height": 8.871417752309053
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "3ea297aa-ea65-4fae-b902-7c97495e48ff",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 4.698135308398066,
+        "y": 0,
+        "width": 4.821688482296344,
+        "height": 4.256115970594009
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "3a63064b-e02b-4a44-aafe-10b96ee9aa5e",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 4.698135308398066,
+        "y": 4.256115970594009,
+        "width": 2.520168247031597,
+        "height": 4.615301781715044
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "1fff34e3-44b9-40a8-9d27-2a6f7c806d35",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 7.218303555429663,
+        "y": 4.256115970594009,
+        "width": 2.3015202352647472,
+        "height": 4.615301781715044
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "bb356ac8-bca6-4db3-9bf4-d8f842932e39",
+      "room_a_id": "4a3fa151-1e47-4085-857e-932a9d9195bd",
+      "room_b_id": "3a63064b-e02b-4a44-aafe-10b96ee9aa5e",
+      "position": {
+        "x": 4.698135308398066,
+        "y": 8.252787124565295
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "2ce836e2-2ac1-4a98-9bd4-621849ab6c1d",
+      "room_a_id": "3ea297aa-ea65-4fae-b902-7c97495e48ff",
+      "room_b_id": "1fff34e3-44b9-40a8-9d27-2a6f7c806d35",
+      "position": {
+        "x": 8.442838350947135,
+        "y": 4.256115970594009
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "97b8a912-6b2b-466e-abe8-ac5031745ffb",
+      "room_a_id": "3a63064b-e02b-4a44-aafe-10b96ee9aa5e",
+      "room_b_id": "1fff34e3-44b9-40a8-9d27-2a6f7c806d35",
+      "position": {
+        "x": 7.218303555429663,
+        "y": 5.333351186284371
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "1fff34e3-44b9-40a8-9d27-2a6f7c806d35",
+  "metadata": {
+    "target_area": 84.45433377562046,
+    "actual_area": 84.45433377562046,
+    "room_count": 4,
+    "door_count": 3
+  }
+}

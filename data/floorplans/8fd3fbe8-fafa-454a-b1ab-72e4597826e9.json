@@ -1,0 +1,78 @@
+{
+  "id": "8fd3fbe8-fafa-454a-b1ab-72e4597826e9",
+  "seed": 4962,
+  "region": "Australian_house",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "21c17dac-4d16-4b13-91f3-6eb634775820",
+      "room_type": "garage",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 8.681038977404139,
+        "height": 5.80721519596656
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "6a6b6ad5-4788-43c4-bf50-bf600be1242f",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 8.681038977404139,
+        "y": 0,
+        "width": 6.863908997467728,
+        "height": 5.80721519596656
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "ca258d52-b30a-415a-bc14-388a19ef3c80",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 5.80721519596656,
+        "width": 15.544947974871867,
+        "height": 6.544993920671004
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "a295582f-7aaf-4797-9df7-56ce3ef0274c",
+      "room_a_id": "21c17dac-4d16-4b13-91f3-6eb634775820",
+      "room_b_id": "ca258d52-b30a-415a-bc14-388a19ef3c80",
+      "position": {
+        "x": 2.1195631239588097,
+        "y": 5.80721519596656
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "f2307ec4-be55-4732-82be-9b678821feaa",
+      "room_a_id": "21c17dac-4d16-4b13-91f3-6eb634775820",
+      "room_b_id": "6a6b6ad5-4788-43c4-bf50-bf600be1242f",
+      "position": {
+        "x": 8.681038977404139,
+        "y": 4.310444286381963
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "ca258d52-b30a-415a-bc14-388a19ef3c80",
+  "metadata": {
+    "target_area": 192.0144480928689,
+    "actual_area": 192.01444809286892,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "a559e555-d169-48d4-af1f-ddb1dcef715a",
+  "seed": 4144,
+  "region": "European_old_town",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "627823df-438b-4773-81ba-4dae78ad21be",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.251094628143887,
+        "height": 7.1407061901872435
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "49b1d9f0-312a-49ec-9bfc-4815ae8bd392",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 7.251094628143887,
+        "y": 0,
+        "width": 3.762823153749414,
+        "height": 3.6834076604734953
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "34fd730c-5eb7-42a1-b876-3e3e04e690b4",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 7.251094628143887,
+        "y": 3.6834076604734953,
+        "width": 3.762823153749414,
+        "height": 3.457298529713748
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "7e54afc0-3cc0-4f18-beb7-ddc10248c614",
+      "room_a_id": "627823df-438b-4773-81ba-4dae78ad21be",
+      "room_b_id": "34fd730c-5eb7-42a1-b876-3e3e04e690b4",
+      "position": {
+        "x": 7.251094628143887,
+        "y": 6.434391092690634
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "5baffef8-8dca-4d22-8298-e9bb5d8418b3",
+      "room_a_id": "627823df-438b-4773-81ba-4dae78ad21be",
+      "room_b_id": "49b1d9f0-312a-49ec-9bfc-4815ae8bd392",
+      "position": {
+        "x": 7.251094628143887,
+        "y": 1.794578232514068
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "34fd730c-5eb7-42a1-b876-3e3e04e690b4",
+  "metadata": {
+    "target_area": 78.64715088337886,
+    "actual_area": 78.64715088337886,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

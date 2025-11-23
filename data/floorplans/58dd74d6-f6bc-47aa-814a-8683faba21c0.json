@@ -1,0 +1,78 @@
+{
+  "id": "58dd74d6-f6bc-47aa-814a-8683faba21c0",
+  "seed": 3510,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "7b84a446-c231-4b82-9402-f25e00048e2a",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.906072089895453,
+        "height": 9.567257817348693
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "a73856ff-8cb9-4a24-819d-b8d1296d7414",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 5.906072089895453,
+        "y": 0,
+        "width": 7.4178832768489915,
+        "height": 5.7016299068247065
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "8ae74668-3709-42d5-844a-47e01791b9eb",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 5.906072089895453,
+        "y": 5.7016299068247065,
+        "width": 7.4178832768489915,
+        "height": 3.865627910523987
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "5ae92a88-3efc-4584-b2be-92faded360f3",
+      "room_a_id": "7b84a446-c231-4b82-9402-f25e00048e2a",
+      "room_b_id": "8ae74668-3709-42d5-844a-47e01791b9eb",
+      "position": {
+        "x": 5.906072089895453,
+        "y": 7.898289156332052
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "5b2b54a0-ae9d-483d-ac6a-8f3f545c5cbc",
+      "room_a_id": "a73856ff-8cb9-4a24-819d-b8d1296d7414",
+      "room_b_id": "8ae74668-3709-42d5-844a-47e01791b9eb",
+      "position": {
+        "x": 11.162516277278431,
+        "y": 5.7016299068247065
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "a73856ff-8cb9-4a24-819d-b8d1296d7414",
+  "metadata": {
+    "target_area": 127.4737161404909,
+    "actual_area": 127.47371614049086,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

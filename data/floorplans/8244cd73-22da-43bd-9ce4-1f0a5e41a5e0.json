@@ -1,0 +1,150 @@
+{
+  "id": "8244cd73-22da-43bd-9ce4-1f0a5e41a5e0",
+  "seed": 3522,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "298c62c4-c3ed-4711-8fa7-b2ce2d7f575b",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.053739617998344,
+        "height": 4.366161477110566
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "9d348090-8c2d-4379-9305-2f760f8dc3b2",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 7.053739617998344,
+        "y": 0,
+        "width": 5.036280131455939,
+        "height": 3.0223655396376317
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "f512f7a1-5146-4202-898e-d4fe075b502d",
+      "room_type": "guest_bedroom",
+      "bounds": {
+        "x": 7.053739617998344,
+        "y": 3.0223655396376317,
+        "width": 5.036280131455939,
+        "height": 4.386012082321965
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "2d00db00-963f-4842-95eb-688c91a7923f",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 4.366161477110566,
+        "width": 4.600311660417087,
+        "height": 5.017218429372875
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "5cf3160f-c414-456d-93f7-8ee691b2f0c4",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 4.600311660417087,
+        "y": 4.366161477110566,
+        "width": 2.4534279575812574,
+        "height": 5.017218429372875
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "e4a316a7-5536-4978-ae11-7604455bed38",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 7.053739617998344,
+        "y": 7.4083776219595965,
+        "width": 5.036280131455939,
+        "height": 1.9750022845238444
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "9f086e0c-89f4-43b6-8327-d92c86f5d5ab",
+      "room_a_id": "298c62c4-c3ed-4711-8fa7-b2ce2d7f575b",
+      "room_b_id": "9d348090-8c2d-4379-9305-2f760f8dc3b2",
+      "position": {
+        "x": 7.053739617998344,
+        "y": 2.360176888118456
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    },
+    {
+      "id": "7825f2b6-918e-42b1-b7c8-9688203b6ff5",
+      "room_a_id": "2d00db00-963f-4842-95eb-688c91a7923f",
+      "room_b_id": "5cf3160f-c414-456d-93f7-8ee691b2f0c4",
+      "position": {
+        "x": 4.600311660417087,
+        "y": 6.227580542347823
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "738ba5a4-4192-4507-a146-99b5e475c430",
+      "room_a_id": "298c62c4-c3ed-4711-8fa7-b2ce2d7f575b",
+      "room_b_id": "5cf3160f-c414-456d-93f7-8ee691b2f0c4",
+      "position": {
+        "x": 5.981166182577568,
+        "y": 4.366161477110566
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "723f3983-bf92-4c19-8e12-e6a851c427a2",
+      "room_a_id": "5cf3160f-c414-456d-93f7-8ee691b2f0c4",
+      "room_b_id": "e4a316a7-5536-4978-ae11-7604455bed38",
+      "position": {
+        "x": 7.053739617998344,
+        "y": 8.011794916072589
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    },
+    {
+      "id": "26bdbf86-0fc1-416f-859d-5c5e3e5485e0",
+      "room_a_id": "298c62c4-c3ed-4711-8fa7-b2ce2d7f575b",
+      "room_b_id": "f512f7a1-5146-4202-898e-d4fe075b502d",
+      "position": {
+        "x": 7.053739617998344,
+        "y": 3.6942635083740987
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "5cf3160f-c414-456d-93f7-8ee691b2f0c4",
+  "metadata": {
+    "target_area": 113.44524838601728,
+    "actual_area": 113.44524838601727,
+    "room_count": 6,
+    "door_count": 5
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "c2788852-cd9f-47bd-a9af-8c970bd16aef",
+  "seed": 4075,
+  "region": "European_old_town",
+  "size_category": "micro",
+  "rooms": [
+    {
+      "id": "48cc7695-76c4-454e-a24d-6b9bda7a9cb9",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 3.167401895571166,
+        "height": 4.913133745125102
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "d4915030-4e2b-4e5e-9889-edc6969cb332",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.167401895571166,
+        "y": 0,
+        "width": 2.0512631354235684,
+        "height": 3.2151584783604967
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "e2fdbcdc-4845-4665-bf29-6fc885e2477d",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.167401895571166,
+        "y": 3.2151584783604967,
+        "width": 2.0512631354235684,
+        "height": 1.6979752667646055
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "82007aea-da54-4464-9d35-366eb1c7e4a1",
+      "room_a_id": "48cc7695-76c4-454e-a24d-6b9bda7a9cb9",
+      "room_b_id": "d4915030-4e2b-4e5e-9889-edc6969cb332",
+      "position": {
+        "x": 3.167401895571166,
+        "y": 2.4905746575599474
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "24255414-f539-4756-9671-2f70ca3777de",
+      "room_a_id": "48cc7695-76c4-454e-a24d-6b9bda7a9cb9",
+      "room_b_id": "e2fdbcdc-4845-4665-bf29-6fc885e2477d",
+      "position": {
+        "x": 3.167401895571166,
+        "y": 4.064146111742799
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "d4915030-4e2b-4e5e-9889-edc6969cb332",
+  "metadata": {
+    "target_area": 25.639999268284566,
+    "actual_area": 25.639999268284566,
+    "room_count": 3,
+    "door_count": 2
+  }
+}

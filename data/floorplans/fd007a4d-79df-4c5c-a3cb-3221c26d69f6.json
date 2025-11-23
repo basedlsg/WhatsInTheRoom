@@ -1,0 +1,150 @@
+{
+  "id": "fd007a4d-79df-4c5c-a3cb-3221c26d69f6",
+  "seed": 4931,
+  "region": "Australian_house",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "87c92578-9153-415c-8e05-61516965b29c",
+      "room_type": "garage",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 10.595180548923334,
+        "height": 4.5874961248126915
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "cb7f59dc-f178-4f27-a858-300be85d91c7",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 10.595180548923334,
+        "y": 0,
+        "width": 5.5066951030491325,
+        "height": 12.401535876920505
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "fdf4a4fa-61e7-4579-bc06-bd4b8fdb05c7",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 4.5874961248126915,
+        "width": 3.8394712981553814,
+        "height": 7.8140397521078135
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "9b098863-3b63-464d-919b-996641cc7a65",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.8394712981553814,
+        "y": 4.5874961248126915,
+        "width": 2.936579844320716,
+        "height": 5.42641646331258
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "4eac5ee4-891f-43a1-bfce-f4e765e748c8",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.776051142476097,
+        "y": 4.5874961248126915,
+        "width": 3.8191294064472374,
+        "height": 5.42641646331258
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b2661102-6b46-4818-84b3-3065a75a3492",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 3.8394712981553814,
+        "y": 10.013912588125272,
+        "width": 6.7557092507679535,
+        "height": 2.3876232887952336
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "25c9fa45-a4e2-4f2e-80ff-640b94e18f8c",
+      "room_a_id": "cb7f59dc-f178-4f27-a858-300be85d91c7",
+      "room_b_id": "b2661102-6b46-4818-84b3-3065a75a3492",
+      "position": {
+        "x": 10.595180548923334,
+        "y": 10.864706562783157
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "ac6f25ef-f2c6-46c8-b440-eb9ba4d6c335",
+      "room_a_id": "9b098863-3b63-464d-919b-996641cc7a65",
+      "room_b_id": "b2661102-6b46-4818-84b3-3065a75a3492",
+      "position": {
+        "x": 5.769897881399671,
+        "y": 10.013912588125272
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "7f3dfb7a-f27a-4fce-a5c4-6ddd160047f3",
+      "room_a_id": "87c92578-9153-415c-8e05-61516965b29c",
+      "room_b_id": "4eac5ee4-891f-43a1-bfce-f4e765e748c8",
+      "position": {
+        "x": 8.193968791318554,
+        "y": 4.5874961248126915
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "f4a3baf8-38d5-40e0-8540-74b7b26f41bd",
+      "room_a_id": "fdf4a4fa-61e7-4579-bc06-bd4b8fdb05c7",
+      "room_b_id": "9b098863-3b63-464d-919b-996641cc7a65",
+      "position": {
+        "x": 3.8394712981553814,
+        "y": 7.034061643220257
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "1d17bcca-7ade-4c29-b06f-57f58280ea2a",
+      "room_a_id": "9b098863-3b63-464d-919b-996641cc7a65",
+      "room_b_id": "4eac5ee4-891f-43a1-bfce-f4e765e748c8",
+      "position": {
+        "x": 6.776051142476097,
+        "y": 9.03394697007669
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "9b098863-3b63-464d-919b-996641cc7a65",
+  "metadata": {
+    "target_area": 199.68798858364926,
+    "actual_area": 199.6879885836493,
+    "room_count": 6,
+    "door_count": 5
+  }
+}

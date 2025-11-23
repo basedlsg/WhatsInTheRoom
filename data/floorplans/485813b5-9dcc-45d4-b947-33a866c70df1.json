@@ -1,0 +1,78 @@
+{
+  "id": "485813b5-9dcc-45d4-b947-33a866c70df1",
+  "seed": 4824,
+  "region": "Australian_house",
+  "size_category": "small",
+  "rooms": [
+    {
+      "id": "726fa9be-81a5-4b66-bb32-938ac19b96ef",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.873875627473584,
+        "height": 6.722485138454623
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "e22d04c4-3b15-468c-bf93-5c0291de3a5b",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 4.873875627473584,
+        "y": 0,
+        "width": 3.600396011098127,
+        "height": 3.090102146596897
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "ccef7412-8b80-4821-a1cf-75ccec97cc03",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 4.873875627473584,
+        "y": 3.090102146596897,
+        "width": 3.600396011098127,
+        "height": 3.6323829918577255
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "6ee4ca86-3fa5-4a41-b61a-3bcf8d76fb5b",
+      "room_a_id": "726fa9be-81a5-4b66-bb32-938ac19b96ef",
+      "room_b_id": "e22d04c4-3b15-468c-bf93-5c0291de3a5b",
+      "position": {
+        "x": 4.873875627473584,
+        "y": 1.8421057651117914
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "b1fb6ef6-d4f6-4504-8395-5fcbfcda8a9e",
+      "room_a_id": "726fa9be-81a5-4b66-bb32-938ac19b96ef",
+      "room_b_id": "ccef7412-8b80-4821-a1cf-75ccec97cc03",
+      "position": {
+        "x": 4.873875627473584,
+        "y": 4.967335232672802
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "726fa9be-81a5-4b66-bb32-938ac19b96ef",
+  "metadata": {
+    "target_area": 56.96816514952583,
+    "actual_area": 56.968165149525824,
+    "room_count": 3,
+    "door_count": 2
+  }
+}
