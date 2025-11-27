@@ -1,0 +1,88 @@
+{
+  "id": "3930487f-ffd9-422e-bd92-6cbaee9fc16d",
+  "seed": 10114,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "8c0c6f8d-326f-4472-9c47-c735935b6350",
+      "room_type": "storage",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.281163316670677,
+        "height": 3.3112224469825096
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "fa48f26c-62cc-49f4-9269-95dc68e843df",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.281163316670677,
+        "y": 0,
+        "width": 3.07167697383961,
+        "height": 3.3112224469825096
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "65e61232-8f81-4485-8f4e-5b7abaca174d",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 3.3112224469825096,
+        "width": 9.352840290510287,
+        "height": 5.518802083782991
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "3bdb69fd-a341-4d72-a746-e08b66b1c7fc",
+      "room_a_id": "8c0c6f8d-326f-4472-9c47-c735935b6350",
+      "room_b_id": "fa48f26c-62cc-49f4-9269-95dc68e843df",
+      "position": {
+        "x": 6.281163316670677,
+        "y": 2.169107806956473
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "a6650a73-7a26-4bfc-b3c5-babc582867b2",
+      "room_a_id": "8c0c6f8d-326f-4472-9c47-c735935b6350",
+      "room_b_id": "65e61232-8f81-4485-8f4e-5b7abaca174d",
+      "position": {
+        "x": 2.248757665557185,
+        "y": 3.3112224469825096
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "fa48f26c-62cc-49f4-9269-95dc68e843df",
+  "metadata": {
+    "target_area": 82.58580919753777,
+    "actual_area": 82.58580919753777,
+    "room_count": 3,
+    "door_count": 2,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "missing_rooms",
+      "severity": "medium"
+    },
+    "mystery_room": {
+      "id": "fa48f26c-62cc-49f4-9269-95dc68e843df",
+      "type": "bedroom",
+      "difficulty": "hard"
+    }
+  }
+}

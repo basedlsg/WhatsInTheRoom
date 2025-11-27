@@ -1,0 +1,88 @@
+{
+  "id": "ec1e518f-1170-4f43-82fc-e0df72be87a9",
+  "seed": 10051,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "01444f04-9d68-4cc0-bbbf-4d5363db443f",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.8215622563926885,
+        "height": 4.662509072559016
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "9eaffa10-05d3-4bc8-9de0-b5eba654185f",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 4.8215622563926885,
+        "y": 0,
+        "width": 6.551685148294272,
+        "height": 9.260685058828736
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "75388589-aaa9-424b-832e-a491c0de060e",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 4.662509072559016,
+        "width": 4.8215622563926885,
+        "height": 4.5981759862697205
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "2e2b9861-0200-4116-bc21-fda0c997155c",
+      "room_a_id": "01444f04-9d68-4cc0-bbbf-4d5363db443f",
+      "room_b_id": "75388589-aaa9-424b-832e-a491c0de060e",
+      "position": {
+        "x": 1.9355071610155632,
+        "y": 4.662509072559016
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "c14c18d4-b7bf-422d-9f0f-56fd3af3ae0c",
+      "room_a_id": "01444f04-9d68-4cc0-bbbf-4d5363db443f",
+      "room_b_id": "9eaffa10-05d3-4bc8-9de0-b5eba654185f",
+      "position": {
+        "x": 4.8215622563926885,
+        "y": 1.1255616853025727
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "75388589-aaa9-424b-832e-a491c0de060e",
+  "metadata": {
+    "target_area": 105.32406231094726,
+    "actual_area": 105.32406231094723,
+    "room_count": 3,
+    "door_count": 2,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "window_deception",
+      "severity": "slight"
+    },
+    "mystery_room": {
+      "id": "75388589-aaa9-424b-832e-a491c0de060e",
+      "type": "living_room",
+      "difficulty": "medium"
+    }
+  }
+}

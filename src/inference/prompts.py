@@ -111,30 +111,111 @@ Please provide your answer in JSON format:
 }}"""
 
 
-def create_chain_of_thought_prompt() -> str:
+def create_chain_of_thought_prompt(
+    region: RegionType,
+    size_category: SizeCategory
+) -> str:
     """
     Create a prompt that encourages step-by-step reasoning.
+    
+    Args:
+        region: Regional style
+        size_category: Size category
 
     Returns:
         Chain-of-thought prompt
     """
-    return """Analyze this floorplan step by step:
+    prompt = f"""You are analyzing a residential floorplan.
+Context:
+- Style: {region.value.replace('_', ' ')}
+- Size: {size_category.value}
+
+Analyze this floorplan step by step to identify the unlabeled "mystery room":
 
 Step 1: Identify which room is unlabeled
-Step 2: Measure or estimate its approximate size
-Step 3: Note which labeled rooms it connects to
-Step 4: Consider its position in the overall layout
-Step 5: Make your prediction
+Step 2: Measure or estimate its approximate size relative to other rooms
+Step 3: Note which labeled rooms it connects to (adjacencies)
+Step 4: Consider its position in the overall layout and flow
+Step 5: Make your prediction based on architectural logic
 
 Think through each step, then provide your final answer in JSON format:
-{
-  "unlabeled_room_location": "brief description of where it is",
-  "approximate_size": "small/medium/large",
-  "connected_to": "list the adjacent rooms",
+{{
+  "step_1_identification": "location of unlabeled room",
+  "step_2_size_analysis": "size observation",
+  "step_3_adjacency_analysis": "connected rooms",
+  "step_4_layout_analysis": "positional logic",
   "room_type": "your final prediction",
-  "reasoning": "your reasoning (1-3 sentences)"
-}"""
+  "reasoning": "summary of your conclusion"
+}}"""
+    return prompt
 
 
 # Default prompt to use
 DEFAULT_PROMPT = create_simple_prompt()
+
+
+def create_critique_prompt(
+    region: RegionType,
+    size_category: SizeCategory
+) -> str:
+    """
+    Create a prompt asking for architectural critique.
+    
+    Args:
+        region: Regional style
+        size_category: Size category
+        
+    Returns:
+        Critique prompt string
+    """
+    return f"""You are a senior architect reviewing a floorplan design.
+    
+Context:
+- Style: {region.value.replace('_', ' ')}
+- Size: {size_category.value}
+
+Your task is to critique this layout for realism and functionality.
+1. Identify any "odd" or unrealistic elements (e.g., strange room sizes, bad adjacencies).
+2. Evaluate if the flow makes sense for a human resident.
+3. Rate the realism on a scale of 1-10.
+
+Provide your critique in JSON format:
+{{
+  "realism_score": 5,
+  "critique": "Your detailed critique here...",
+  "flaws": ["list", "of", "specific", "flaws"],
+  "strengths": ["list", "of", "strengths"]
+}}"""
+
+
+def create_counterfactual_prompt(
+    target_room_type: str,
+    alternative_room_type: str
+) -> str:
+    """
+    Create a counterfactual reasoning prompt.
+    
+    Args:
+        target_room_type: The actual type of the mystery room (or a hypothesis)
+        alternative_room_type: An alternative type to consider
+        
+    Returns:
+        Counterfactual prompt string
+    """
+    return f"""Consider the unlabeled mystery room in this floorplan.
+
+Hypothesis A: The room is a {target_room_type}.
+Hypothesis B: The room is a {alternative_room_type}.
+
+Compare these two hypotheses.
+1. Which one fits the layout better?
+2. What evidence supports A?
+3. What evidence supports B?
+4. What would need to change in the layout to make the OTHER hypothesis valid?
+
+Provide your analysis in JSON format:
+{{
+  "preferred_hypothesis": "A or B",
+  "reasoning": "Explanation of why one fits better",
+  "counterfactual_analysis": "What would make the other one work?"
+}}"""

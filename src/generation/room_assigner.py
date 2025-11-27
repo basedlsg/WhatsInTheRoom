@@ -2,7 +2,8 @@
 
 import random
 import uuid
-from typing import List
+from typing import List, Dict, Tuple
+from enum import Enum
 
 from ..core.geometry import Rectangle
 from ..core.types import RoomType, RegionType
@@ -13,6 +14,24 @@ from .constraints import (
     validate_room_dimensions,
 )
 from .parameters import MYSTERY_ROOM_WEIGHTS, ROOM_AREA_RANGES
+
+
+# Canonical mystery room types for publication-grade benchmark
+CANDIDATE_MYSTERY_TYPES = {
+    RoomType.BEDROOM,
+    RoomType.BATHROOM,
+    RoomType.KITCHEN,
+    RoomType.LIVING_ROOM,
+    RoomType.OFFICE,
+    RoomType.CLOSET
+}
+
+
+class DifficultyTier(Enum):
+    """Mystery room difficulty classification."""
+    EASY = "easy"
+    MEDIUM = "medium"
+    HARD = "hard"
 
 
 def assign_room_types(
@@ -88,64 +107,141 @@ def assign_room_types(
     return rooms
 
 
-def select_mystery_room(rooms: list[Room], rng: random.Random) -> str:
+def compute_room_difficulty_features(room: Room, all_rooms: List[Room]) -> Dict[str, float]:
     """
-    Select which room should be the mystery (unlabeled) room.
+    Compute difficulty features for a room to classify mystery room difficulty.
+    
+    Args:
+        room: Room to analyze
+        all_rooms: All rooms in the floorplan
+    
+    Returns:
+        Dictionary of features
+    """
+    features = {}
+    
+    # Area feature
+    features['area'] = room.area
+    
+    # Count features (will be set separately with door/window counts)
+    features['has_window'] = 1.0 if room.has_window else 0.0
+    
+    # Uniqueness of area among all rooms
+    all_areas = [r.area for r in all_rooms]
+    area_distances = [abs(room.area - a) for a in all_areas if a != room.area]
+    features['area_uniqueness'] = min(area_distances) if area_distances else 10.0
+    
+    # Type count (how many of this type exist)
+    type_count = sum(1 for r in all_rooms if r.room_type == room.room_type)
+    features['type_count'] = type_count
+    
+    return features
 
-    Prefers ambiguous room types like closet, office, storage.
-    Avoids selecting the only instance of a critical room type.
 
+def classify_room_difficulty(
+    room: Room,
+    all_rooms: List[Room],
+    door_count: int = 1,
+    adjacent_count: int = 2
+) -> DifficultyTier:
+    """
+    Classify mystery room difficulty based on features.
+    
+    Easy: Large, unique size OR clear distinguishing features
+    Medium: Typical sizes/adjacencies, unambiguous
+    Hard: Threshold sizes, ambiguous features
+    
+    Args:
+        room: Room to classify
+        all_rooms: All rooms in floorplan
+        door_count: Number of doors (from door placement)
+        adjacent_count: Number of adjacent rooms
+    
+    Returns:
+        Difficulty tier
+    """
+    features = compute_room_difficulty_features(room, all_rooms)
+    
+    # Rule-based classification
+    area = features['area']
+    uniqueness = features['area_uniqueness']
+    type_count = features['type_count']
+    
+    # EASY: Clear distinguishing features
+    if room.room_type == RoomType.KITCHEN and area > 12:
+        return DifficultyTier.EASY
+    if room.room_type == RoomType.BATHROOM and type_count == 1:
+        return DifficultyTier.EASY
+    if uniqueness > 5.0 and area > 15:
+        # Very unique size and large
+        return DifficultyTier.EASY
+    
+    # HARD: Ambiguous cases
+    # Small bedroom vs office
+    if room.room_type == RoomType.BEDROOM and 8 <= area <= 12:
+        return DifficultyTier.HARD
+    if room.room_type == RoomType.OFFICE and 8 <= area <= 12:
+        return DifficultyTier.HARD
+    # Large closet vs pantry
+    if room.room_type == RoomType.CLOSET and area > 4:
+        return DifficultyTier.HARD
+    # Multiple of same type
+    if type_count >= 2 and area < 15:
+        return DifficultyTier.HARD
+    
+    # MEDIUM: Everything else
+    return DifficultyTier.MEDIUM
+
+
+def select_mystery_room(
+    rooms: list[Room],
+    rng: random.Random,
+    target_difficulty: DifficultyTier = None
+) -> Tuple[str, DifficultyTier]:
+    """
+    Select mystery room with difficulty-aware sampling.
+    
+    Publication-grade version with:
+    - Canonical room types only
+    - Difficulty classification
+    - Balanced sampling support
+    
     Args:
         rooms: List of all rooms in the floorplan
         rng: Random number generator
-
+        target_difficulty: Optional target difficulty (for balanced sampling)
+    
     Returns:
-        ID of the room to be marked as mystery
+        Tuple of (room_id, difficulty_tier)
     """
-    # Count occurrences of each room type
-    type_counts = {}
-    for room in rooms:
-        room_type = room.room_type
-        type_counts[room_type] = type_counts.get(room_type, 0) + 1
-
-    # Filter candidates: rooms that aren't the only one of their type
-    candidates = []
-    weights = []
-
-    for room in rooms:
-        room_type = room.room_type
-
-        # Don't select if it's the only one of its type
-        if type_counts[room_type] == 1:
-            # Exception: allow if it's a highly ambiguous type
-            if room_type not in [RoomType.CLOSET, RoomType.OFFICE, RoomType.STORAGE,
-                                RoomType.GUEST_BEDROOM, RoomType.PANTRY]:
-                continue
-
-        # Get weight for this room type
-        weight = MYSTERY_ROOM_WEIGHTS.get(room_type, 0.5)
-
-        # Prefer rooms that are not too large or too small
-        # Medium-sized rooms are more ambiguous
-        area_factor = 1.0
-        if room.area < 4:  # Very small
-            area_factor = 0.7
-        elif room.area > 25:  # Very large
-            area_factor = 0.6
-
-        final_weight = weight * area_factor
-
-        if final_weight > 0:
-            candidates.append(room)
-            weights.append(final_weight)
-
-    # If no suitable candidates (shouldn't happen), just pick a random room
+    # Filter to canonical mystery room types
+    candidates = [r for r in rooms if r.room_type in CANDIDATE_MYSTERY_TYPES]
+    
     if not candidates:
-        return rng.choice(rooms).id
-
-    # Select based on weights
-    mystery_room = rng.choices(candidates, weights=weights, k=1)[0]
-    return mystery_room.id
+        # Fallback: allow any room
+        candidates = rooms
+    
+    # Classify difficulty for all candidates
+    candidate_difficulties = []
+    for room in candidates:
+        difficulty = classify_room_difficulty(room, rooms)
+        candidate_difficulties.append((room, difficulty))
+    
+    # Filter by target difficulty if specified
+    if target_difficulty:
+        filtered = [(r, d) for r, d in candidate_difficulties if d == target_difficulty]
+        if filtered:
+            candidate_difficulties = filtered
+    
+    # Select randomly from filtered candidates
+    if not candidate_difficulties:
+        # No candidates - fallback
+        selected = rng.choice(rooms)
+        difficulty = classify_room_difficulty(selected, rooms)
+    else:
+        selected, difficulty = rng.choice(candidate_difficulties)
+    
+    return selected.id, difficulty
 
 
 def optimize_room_assignment(

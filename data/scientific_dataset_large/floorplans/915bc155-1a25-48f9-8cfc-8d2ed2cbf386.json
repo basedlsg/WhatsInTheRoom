@@ -1,0 +1,56 @@
+{
+    "id": "915bc155-1a25-48f9-8cfc-8d2ed2cbf386",
+    "seed": 42,
+    "region": "Chinese_city_apartment",
+    "size_category": "small",
+    "rooms": [
+        {
+            "id": "29c65f06-667e-4004-83e9-e1ae7918f16b",
+            "room_type": "kitchen",
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "width": 3.8150612689061445,
+                "height": 6.779415824310235
+            },
+            "has_window": false,
+            "is_mystery": false,
+            "metadata": {}
+        },
+        {
+            "id": "bd7c8129-ffd1-4008-9f84-d77bea6a9721",
+            "room_type": "living_room",
+            "bounds": {
+                "x": 3.8150612689061445,
+                "y": 0,
+                "width": 5.4897000694722715,
+                "height": 6.779415824310235
+            },
+            "has_window": false,
+            "is_mystery": true,
+            "metadata": {}
+        }
+    ],
+    "doors": [
+        {
+            "id": "0b75db21-1347-4932-91ca-8e0c4dccc5dc",
+            "room_a_id": "29c65f06-667e-4004-83e9-e1ae7918f16b",
+            "room_b_id": "bd7c8129-ffd1-4008-9f84-d77bea6a9721",
+            "position": {
+                "x": 3.8150612689061445,
+                "y": 1.3622748806559057
+            },
+            "door_type": "standard",
+            "metadata": {}
+        }
+    ],
+    "mystery_room_id": "bd7c8129-ffd1-4008-9f84-d77bea6a9721",
+    "metadata": {
+        "target_area": 63.08084625883272,
+        "actual_area": 63.08084625883272,
+        "room_count": 2,
+        "door_count": 1,
+        "is_adversarial": true,
+        "confusion_type": "window_deception"
+    }
+}

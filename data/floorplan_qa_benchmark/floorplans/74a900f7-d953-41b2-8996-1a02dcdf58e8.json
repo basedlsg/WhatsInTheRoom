@@ -1,0 +1,83 @@
+{
+  "id": "74a900f7-d953-41b2-8996-1a02dcdf58e8",
+  "seed": 61,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "96474174-c055-454a-b5cc-7a543db14812",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.223332470038148,
+        "height": 4.171125929305102
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "93c21688-9559-418d-9beb-2e27e67ceb68",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 5.223332470038148,
+        "y": 0,
+        "width": 6.969690595718699,
+        "height": 9.39997569925421
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "5d672820-314e-4046-8a58-eecb1d8a410e",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 4.171125929305102,
+        "width": 5.223332470038148,
+        "height": 5.228849769949107
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "e202bdce-d229-4370-8b68-b3861b051f5c",
+      "room_a_id": "96474174-c055-454a-b5cc-7a543db14812",
+      "room_b_id": "93c21688-9559-418d-9beb-2e27e67ceb68",
+      "position": {
+        "x": 5.223332470038148,
+        "y": 1.6395278358893328
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "416784af-4b16-4444-add1-e77a5940cf39",
+      "room_a_id": "96474174-c055-454a-b5cc-7a543db14812",
+      "room_b_id": "5d672820-314e-4046-8a58-eecb1d8a410e",
+      "position": {
+        "x": 3.1682894487976485,
+        "y": 4.171125929305102
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "5d672820-314e-4046-8a58-eecb1d8a410e",
+  "metadata": {
+    "target_area": 114.61412051856043,
+    "actual_area": 114.61412051856043,
+    "room_count": 3,
+    "door_count": 2,
+    "mystery_room": {
+      "id": "5d672820-314e-4046-8a58-eecb1d8a410e",
+      "type": "bedroom",
+      "difficulty": "easy"
+    }
+  }
+}

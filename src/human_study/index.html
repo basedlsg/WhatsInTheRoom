@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloorplanQA Human Study</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f5f5f5; }
+        .container { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .progress { text-align: right; color: #7f8c8d; margin-bottom: 20px; }
+        .image-container { text-align: center; margin: 20px 0; border: 1px solid #ddd; padding: 10px; background: #fff; }
+        img { max-width: 100%; max-height: 500px; }
+        .question-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #34495e; }
+        select, input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px; }
+        .confidence-scale { display: flex; justify-content: space-between; margin-top: 10px; }
+        .confidence-option { text-align: center; }
+        button { background-color: #3498db; color: white; border: none; padding: 12px 24px; font-size: 16px; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 20px; transition: background 0.3s; }
+        button:hover { background-color: #2980b9; }
+        .hidden { display: none; }
+        #intro, #outro { text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="intro">
+    <h1>Floorplan Mystery Room Study</h1>
+    <p>Welcome! In this study, you will see floorplans with one room <strong>unlabeled</strong> (the "Mystery Room").</p>
+    <p>Your task is to identify what type of room it is based on its size, location, and connections.</p>
+    <p><strong>Estimated time:</strong> 10-15 minutes</p>
+    <button onclick="startStudy()">Start Study</button>
+</div>
+
+<div class="container hidden" id="task">
+    <div class="progress">Trial <span id="trial-num">1</span> of <span id="total-trials">30</span></div>
+    
+    <div class="image-container">
+        <img id="stimulus-image" src="" alt="Floorplan">
+    </div>
+
+    <div class="question-group">
+        <label for="prediction">1. What is the Mystery Room?</label>
+        <select id="prediction">
+            <option value="" disabled selected>Select a room type...</option>
+            <option value="bedroom">Bedroom</option>
+            <option value="bathroom">Bathroom</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="living_room">Living Room</option>
+            <option value="office">Office</option>
+            <option value="closet">Closet</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="question-group">
+        <label>2. How confident are you?</label>
+        <div class="confidence-scale">
+            <div class="confidence-option"><input type="radio" name="confidence" value="1"> 1<br>(Guessing)</div>
+            <div class="confidence-option"><input type="radio" name="confidence" value="2"> 2</div>
+            <div class="confidence-option"><input type="radio" name="confidence" value="3"> 3</div>
+            <div class="confidence-option"><input type="radio" name="confidence" value="4"> 4</div>
+            <div class="confidence-option"><input type="radio" name="confidence" value="5"> 5<br>(Certain)</div>
+        </div>
+    </div>
+
+    <div class="question-group">
+        <label for="reasoning">3. Why? (Briefly explain)</label>
+        <textarea id="reasoning" rows="2" placeholder="e.g., It's small and next to the bedroom..."></textarea>
+    </div>
+
+    <button onclick="nextTrial()">Next</button>
+</div>
+
+<div class="container hidden" id="outro">
+    <h1>Thank You!</h1>
+    <p>Your responses have been saved.</p>
+    <p>You may close this window.</p>
+    <button onclick="downloadData()">Download My Data (Optional)</button>
+</div>
+
+<script>
+    // Configuration
+    let trials = [];
+    let currentTrialIndex = 0;
+    let responses = [];
+    let participantId = 'user_' + Math.random().toString(36).substr(2, 9);
+
+    // Load trials from server (mock for now)
+    async function loadTrials() {
+        try {
+            const response = await fetch('/api/trials');
+            trials = await response.json();
+            document.getElementById('total-trials').textContent = trials.length;
+        } catch (e) {
+            console.error("Could not load trials, using mock data");
+            // Mock data for testing without server
+            trials = [
+                { id: "mock_1", image: "https://via.placeholder.com/600x400?text=Floorplan+1" },
+                { id: "mock_2", image: "https://via.placeholder.com/600x400?text=Floorplan+2" }
+            ];
+            document.getElementById('total-trials').textContent = trials.length;
+        }
+    }
+
+    function startStudy() {
+        document.getElementById('intro').classList.add('hidden');
+        document.getElementById('task').classList.remove('hidden');
+        loadTrial(0);
+    }
+
+    function loadTrial(index) {
+        if (index >= trials.length) {
+            finishStudy();
+            return;
+        }
+        
+        const trial = trials[index];
+        document.getElementById('trial-num').textContent = index + 1;
+        document.getElementById('stimulus-image').src = trial.image;
+        
+        // Reset form
+        document.getElementById('prediction').value = "";
+        document.querySelectorAll('input[name="confidence"]').forEach(r => r.checked = false);
+        document.getElementById('reasoning').value = "";
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+
+    async function nextTrial() {
+        // Validation
+        const pred = document.getElementById('prediction').value;
+        const conf = document.querySelector('input[name="confidence"]:checked');
+        
+        if (!pred || !conf) {
+            alert("Please select a room type and confidence level.");
+            return;
+        }
+
+        // Save response
+        const response = {
+            participant_id: participantId,
+            trial_index: currentTrialIndex,
+            floorplan_id: trials[currentTrialIndex].id,
+            prediction: pred,
+            confidence: conf.value,
+            reasoning: document.getElementById('reasoning').value,
+            timestamp: new Date().toISOString()
+        };
+        
+        responses.push(response);
+        
+        // Send to server
+        try {
+            await fetch('/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(response)
+            });
+        } catch (e) {
+            console.log("Offline mode: response saved locally");
+        }
+
+        currentTrialIndex++;
+        loadTrial(currentTrialIndex);
+    }
+
+    function finishStudy() {
+        document.getElementById('task').classList.add('hidden');
+        document.getElementById('outro').classList.remove('hidden');
+    }
+
+    function downloadData() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(responses, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "floorplan_study_" + participantId + ".json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }
+
+    // Initialize
+    loadTrials();
+</script>
+
+</body>
+</html>

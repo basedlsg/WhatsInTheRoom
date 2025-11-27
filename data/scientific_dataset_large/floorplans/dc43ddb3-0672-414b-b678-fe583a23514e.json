@@ -1,0 +1,56 @@
+{
+    "id": "dc43ddb3-0672-414b-b678-fe583a23514e",
+    "seed": 42,
+    "region": "Modern_urban",
+    "size_category": "micro",
+    "rooms": [
+        {
+            "id": "8452f63d-d3a1-4ea3-96e1-0adf20e1c0a1",
+            "room_type": "kitchen",
+            "bounds": {
+                "x": 2.9480497454644534,
+                "y": 0,
+                "width": 4.242109825178293,
+                "height": 5.238724541109633
+            },
+            "has_window": true,
+            "is_mystery": true,
+            "metadata": {}
+        },
+        {
+            "id": "96755423-b8f9-400e-8f81-12759097dd09",
+            "room_type": "bathroom",
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "width": 2.9480497454644534,
+                "height": 5.238724541109633
+            },
+            "has_window": true,
+            "is_mystery": false,
+            "metadata": {}
+        }
+    ],
+    "doors": [
+        {
+            "id": "7d2e7ca6-72ac-4cbd-baa7-a8b804e49197",
+            "room_a_id": "8452f63d-d3a1-4ea3-96e1-0adf20e1c0a1",
+            "room_b_id": "96755423-b8f9-400e-8f81-12759097dd09",
+            "position": {
+                "x": 2.9480497454644534,
+                "y": 1.4391829236592522
+            },
+            "door_type": "standard",
+            "metadata": {}
+        }
+    ],
+    "mystery_room_id": "8452f63d-d3a1-4ea3-96e1-0adf20e1c0a1",
+    "metadata": {
+        "target_area": 37.667265397220454,
+        "actual_area": 37.66726539722046,
+        "room_count": 2,
+        "door_count": 1,
+        "is_adversarial": true,
+        "confusion_type": "adjacency_violation"
+    }
+}

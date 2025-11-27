@@ -80,13 +80,15 @@ def generate_floorplan(
         ensure_connectivity=True
     )
 
-    # Select mystery room
-    mystery_room_id = select_mystery_room(rooms, rng)
+    # Select mystery room (now returns ID and difficulty tier)
+    mystery_room_id, mystery_difficulty = select_mystery_room(rooms, rng)
 
     # Mark the mystery room
+    mystery_room_type = None
     for room in rooms:
         if room.id == mystery_room_id:
             room.is_mystery = True
+            mystery_room_type = room.room_type.value
 
     # Create floorplan object
     floorplan = Floorplan(
@@ -102,6 +104,11 @@ def generate_floorplan(
             "actual_area": sum(room.area for room in rooms),
             "room_count": len(rooms),
             "door_count": len(doors),
+            "mystery_room": {
+                "id": mystery_room_id,
+                "type": mystery_room_type,
+                "difficulty": mystery_difficulty.value
+            }
         }
     )
 

@@ -1,0 +1,64 @@
+{
+  "id": "e9b495a5-8af6-447b-b407-f87c3f95b7a1",
+  "seed": 10064,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "5b980e2f-21be-43bc-84bd-2e12f53b13f4",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 10.403148851684891,
+        "height": 9.767002267266449
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "46ced0b0-c287-41ec-9fa5-db3042b45a6c",
+      "room_type": "guest_bedroom",
+      "bounds": {
+        "x": 10.403148851684891,
+        "y": 0,
+        "width": 4.538320492320016,
+        "height": 9.767002267266449
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "778e02e4-ea74-425c-8e58-b83d27358c8e",
+      "room_a_id": "5b980e2f-21be-43bc-84bd-2e12f53b13f4",
+      "room_b_id": "46ced0b0-c287-41ec-9fa5-db3042b45a6c",
+      "position": {
+        "x": 10.403148851684891,
+        "y": 1.8274690900840855
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "5b980e2f-21be-43bc-84bd-2e12f53b13f4",
+  "metadata": {
+    "target_area": 145.93336495918805,
+    "actual_area": 145.93336495918805,
+    "room_count": 2,
+    "door_count": 1,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "size_mismatch",
+      "severity": "extreme"
+    },
+    "mystery_room": {
+      "id": "5b980e2f-21be-43bc-84bd-2e12f53b13f4",
+      "type": "bathroom",
+      "difficulty": "easy"
+    }
+  }
+}

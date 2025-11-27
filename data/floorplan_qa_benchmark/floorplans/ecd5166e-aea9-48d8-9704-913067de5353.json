@@ -1,0 +1,64 @@
+{
+  "id": "ecd5166e-aea9-48d8-9704-913067de5353",
+  "seed": 10049,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "c1a4665d-01ef-4d11-82fa-28f443c5d4e5",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 9.16430344801584,
+        "height": 5.4356018818795295
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "42cb5df6-ba61-44a5-9b1f-f344b8509265",
+      "room_type": "balcony",
+      "bounds": {
+        "x": 0,
+        "y": 5.4356018818795295,
+        "width": 9.16430344801584,
+        "height": 3.346184760240229
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "9b2c34f7-44ad-4286-87d9-93d75c5c4176",
+      "room_a_id": "c1a4665d-01ef-4d11-82fa-28f443c5d4e5",
+      "room_b_id": "42cb5df6-ba61-44a5-9b1f-f344b8509265",
+      "position": {
+        "x": 2.4448262754715815,
+        "y": 5.4356018818795295
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "c1a4665d-01ef-4d11-82fa-28f443c5d4e5",
+  "metadata": {
+    "target_area": 80.47895760411755,
+    "actual_area": 80.47895760411754,
+    "room_count": 2,
+    "door_count": 1,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "missing_rooms",
+      "severity": "extreme"
+    },
+    "mystery_room": {
+      "id": "c1a4665d-01ef-4d11-82fa-28f443c5d4e5",
+      "type": "living_room",
+      "difficulty": "easy"
+    }
+  }
+}

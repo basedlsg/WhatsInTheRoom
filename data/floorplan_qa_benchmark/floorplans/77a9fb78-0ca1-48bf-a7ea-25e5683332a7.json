@@ -1,0 +1,88 @@
+{
+  "id": "77a9fb78-0ca1-48bf-a7ea-25e5683332a7",
+  "seed": 10115,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "2c17073a-a13c-41a7-a760-f5a6be056090",
+      "room_type": "storage",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.543509336509568,
+        "height": 9.486560989023722
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b8a0f409-5476-4049-b8d3-9f491f4a330f",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.543509336509568,
+        "y": 2.9550894662169793,
+        "width": 6.212804074148036,
+        "height": 6.5314715228067435
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "78ac9b3e-771c-4628-97be-1d777b8ba779",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 6.543509336509568,
+        "y": 0,
+        "width": 6.212804074148036,
+        "height": 2.9550894662169793
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "983a9071-5dff-4dc6-b68a-6ea0df23c0f9",
+      "room_a_id": "2c17073a-a13c-41a7-a760-f5a6be056090",
+      "room_b_id": "b8a0f409-5476-4049-b8d3-9f491f4a330f",
+      "position": {
+        "x": 6.543509336509568,
+        "y": 6.99028399694175
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "985a7bb3-0f45-4ada-8231-232243e4b8b6",
+      "room_a_id": "2c17073a-a13c-41a7-a760-f5a6be056090",
+      "room_b_id": "78ac9b3e-771c-4628-97be-1d777b8ba779",
+      "position": {
+        "x": 6.543509336509568,
+        "y": 0.8425356081288062
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "78ac9b3e-771c-4628-97be-1d777b8ba779",
+  "metadata": {
+    "target_area": 121.01354516530458,
+    "actual_area": 121.01354516530458,
+    "room_count": 3,
+    "door_count": 2,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "size_mismatch",
+      "severity": "slight"
+    },
+    "mystery_room": {
+      "id": "78ac9b3e-771c-4628-97be-1d777b8ba779",
+      "type": "kitchen",
+      "difficulty": "easy"
+    }
+  }
+}

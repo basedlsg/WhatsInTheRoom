@@ -1,0 +1,94 @@
+{
+  "id": "f62c8cb7-ebde-42a4-84a3-f4cceb7d6647",
+  "seed": 269,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "43744a92-c54c-4f2e-ae72-ba3f400b684e",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.211462132349668,
+        "height": 2.6629227020972963
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b397058a-a652-4147-b1c1-47d93e9e89ea",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 5.211462132349668,
+        "y": 0,
+        "width": 4.159774064124395,
+        "height": 8.834644803937495
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "c93110f5-c866-4638-8d34-86aa302b3025",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 2.6629227020972963,
+        "width": 5.211462132349668,
+        "height": 6.171722101840199
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "38a9e0cf-ac0a-4565-bfa9-1b359886e013",
+      "room_a_id": "43744a92-c54c-4f2e-ae72-ba3f400b684e",
+      "room_b_id": "b397058a-a652-4147-b1c1-47d93e9e89ea",
+      "position": {
+        "x": 5.211462132349668,
+        "y": 1.3328337358328552
+      },
+      "door_type": "archway",
+      "metadata": {}
+    },
+    {
+      "id": "379a22ee-898e-4968-9a46-f5be18d6050a",
+      "room_a_id": "43744a92-c54c-4f2e-ae72-ba3f400b684e",
+      "room_b_id": "c93110f5-c866-4638-8d34-86aa302b3025",
+      "position": {
+        "x": 3.196520848535829,
+        "y": 2.6629227020972963
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "aa94993e-6cf3-4d81-a44b-7504a4baa5de",
+      "room_a_id": "b397058a-a652-4147-b1c1-47d93e9e89ea",
+      "room_b_id": "c93110f5-c866-4638-8d34-86aa302b3025",
+      "position": {
+        "x": 5.211462132349668,
+        "y": 3.1812589954733377
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "b397058a-a652-4147-b1c1-47d93e9e89ea",
+  "metadata": {
+    "target_area": 82.79154316965057,
+    "actual_area": 82.79154316965057,
+    "room_count": 3,
+    "door_count": 3,
+    "mystery_room": {
+      "id": "b397058a-a652-4147-b1c1-47d93e9e89ea",
+      "type": "living_room",
+      "difficulty": "medium"
+    }
+  }
+}

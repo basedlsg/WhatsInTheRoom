@@ -41,6 +41,10 @@ class RenderStyle:
     margin: int = 50  # Margin around the floorplan
     label_padding: int = 5
 
+    # Visual Noise / Sketchiness
+    is_sketchy: bool = False
+    sketch_intensity: float = 1.0
+
 
 # Default style
 DEFAULT_STYLE = RenderStyle()
@@ -65,3 +69,28 @@ MINIMAL_STYLE = RenderStyle(
     show_windows=False,
     highlight_mystery_room=False,
 )
+
+# Sketchy style variants for testing visual robustness
+MEDIUM_SKETCHY_STYLE = RenderStyle(
+    is_sketchy=True,
+    sketch_intensity=5.0,
+    wall_width=2.0,
+    font_family="serif"
+)
+
+HIGH_SKETCHY_STYLE = RenderStyle(
+    is_sketchy=True,
+    sketch_intensity=7.5,
+    wall_width=2.0,
+    font_family="serif"
+)
+
+EXTREME_SKETCHY_STYLE = RenderStyle(
+    is_sketchy=True,
+    sketch_intensity=10.0,
+    wall_width=1.5,
+    font_family="serif"
+)
+
+# Default sketchy style (now using extreme for visibility)
+SKETCHY_STYLE = EXTREME_SKETCHY_STYLE

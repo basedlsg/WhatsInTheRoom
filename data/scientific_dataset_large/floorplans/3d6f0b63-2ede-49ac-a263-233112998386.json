@@ -1,0 +1,56 @@
+{
+    "id": "3d6f0b63-2ede-49ac-a263-233112998386",
+    "seed": 42,
+    "region": "Australian_house",
+    "size_category": "micro",
+    "rooms": [
+        {
+            "id": "0e064eaa-8561-4a0c-accf-8515a2d0ee63",
+            "room_type": "kitchen",
+            "bounds": {
+                "x": 2.60440936270174,
+                "y": 0,
+                "width": 3.7476269059913,
+                "height": 4.628070901609492
+            },
+            "has_window": false,
+            "is_mystery": true,
+            "metadata": {}
+        },
+        {
+            "id": "0ccd81e8-abc5-42a8-a048-060c63b2e644",
+            "room_type": "living_room",
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "width": 2.60440936270174,
+                "height": 4.628070901609492
+            },
+            "has_window": true,
+            "is_mystery": false,
+            "metadata": {}
+        }
+    ],
+    "doors": [
+        {
+            "id": "e39f005b-e49f-43fa-a8d6-a5ba66a7486d",
+            "room_a_id": "0e064eaa-8561-4a0c-accf-8515a2d0ee63",
+            "room_b_id": "0ccd81e8-abc5-42a8-a048-060c63b2e644",
+            "position": {
+                "x": 2.60440936270174,
+                "y": 1.3268311024183561
+            },
+            "door_type": "archway",
+            "metadata": {}
+        }
+    ],
+    "mystery_room_id": "0e064eaa-8561-4a0c-accf-8515a2d0ee63",
+    "metadata": {
+        "target_area": 29.397674221106392,
+        "actual_area": 29.397674221106392,
+        "room_count": 2,
+        "door_count": 1,
+        "is_adversarial": true,
+        "confusion_type": "size_mismatch"
+    }
+}

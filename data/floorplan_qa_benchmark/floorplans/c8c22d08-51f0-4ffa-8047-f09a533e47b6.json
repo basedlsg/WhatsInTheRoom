@@ -1,0 +1,88 @@
+{
+  "id": "c8c22d08-51f0-4ffa-8047-f09a533e47b6",
+  "seed": 10092,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "0020d40a-e631-43e2-b486-327ca9e0a0ba",
+      "room_type": "master_bedroom",
+      "bounds": {
+        "x": 7.242752812318145,
+        "y": 0,
+        "width": 4.323113009521325,
+        "height": 9.294953010469271
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "2b4d8093-29a9-4560-aab9-450d114c75ec",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 0,
+        "y": 4.029114376125436,
+        "width": 7.242752812318145,
+        "height": 5.265838634343835
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "4aa6d990-2922-448e-91bd-768038cadfa2",
+      "room_type": "garage",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 7.242752812318145,
+        "height": 4.029114376125436
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "e1702222-6305-4ddd-bde3-dc90f0a9b2a2",
+      "room_a_id": "0020d40a-e631-43e2-b486-327ca9e0a0ba",
+      "room_b_id": "2b4d8093-29a9-4560-aab9-450d114c75ec",
+      "position": {
+        "x": 7.242752812318145,
+        "y": 8.35385351195529
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "446c69a2-c652-4df4-a38a-ca2f35c211d5",
+      "room_a_id": "0020d40a-e631-43e2-b486-327ca9e0a0ba",
+      "room_b_id": "4aa6d990-2922-448e-91bd-768038cadfa2",
+      "position": {
+        "x": 7.242752812318145,
+        "y": 1.4509623233866666
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "2b4d8093-29a9-4560-aab9-450d114c75ec",
+  "metadata": {
+    "target_area": 107.50417933939042,
+    "actual_area": 107.50417933939043,
+    "room_count": 3,
+    "door_count": 2,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "adjacency_violation",
+      "severity": "medium"
+    },
+    "mystery_room": {
+      "id": "2b4d8093-29a9-4560-aab9-450d114c75ec",
+      "type": "bathroom",
+      "difficulty": "easy"
+    }
+  }
+}

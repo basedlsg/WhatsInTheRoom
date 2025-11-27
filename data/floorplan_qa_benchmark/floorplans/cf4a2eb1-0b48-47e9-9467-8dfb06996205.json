@@ -1,0 +1,83 @@
+{
+  "id": "cf4a2eb1-0b48-47e9-9467-8dfb06996205",
+  "seed": 94,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "93bfd0d4-14a1-4d0c-9fda-d971f6266ab1",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.937382115953872,
+        "height": 5.850478974329022
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "00613ff7-1fc0-474e-a207-cdfb8bec3394",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 5.937382115953872,
+        "y": 0,
+        "width": 6.57810446277624,
+        "height": 9.450380375028555
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "814d0286-ae34-4402-abe4-2b8d7bf9d68a",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 5.850478974329022,
+        "width": 5.937382115953872,
+        "height": 3.599901400699533
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "22eb5157-7d9a-4d7c-820e-d1c9ca650d60",
+      "room_a_id": "00613ff7-1fc0-474e-a207-cdfb8bec3394",
+      "room_b_id": "814d0286-ae34-4402-abe4-2b8d7bf9d68a",
+      "position": {
+        "x": 5.937382115953872,
+        "y": 8.82566282817403
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "0dafef6d-8c8b-4bed-a286-3839fd450c9d",
+      "room_a_id": "93bfd0d4-14a1-4d0c-9fda-d971f6266ab1",
+      "room_b_id": "814d0286-ae34-4402-abe4-2b8d7bf9d68a",
+      "position": {
+        "x": 0.5643863163470256,
+        "y": 5.850478974329022
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "00613ff7-1fc0-474e-a207-cdfb8bec3394",
+  "metadata": {
+    "target_area": 118.27610874756431,
+    "actual_area": 118.27610874756432,
+    "room_count": 3,
+    "door_count": 2,
+    "mystery_room": {
+      "id": "00613ff7-1fc0-474e-a207-cdfb8bec3394",
+      "type": "living_room",
+      "difficulty": "easy"
+    }
+  }
+}

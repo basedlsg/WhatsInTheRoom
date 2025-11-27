@@ -3,6 +3,7 @@
 from PIL import Image, ImageDraw, ImageFont
 from typing import Optional
 import os
+import random
 
 from ..core.models import Floorplan, Room, Door
 from ..core.geometry import Rectangle, Point
@@ -165,11 +166,18 @@ class FloorplanRenderer:
     ) -> None:
         """Draw the walls (outline) of a room."""
         coords = self._transform_rect(room.bounds, scale, offset_x, offset_y)
-        draw.rectangle(
-            coords,
-            outline=self.style.wall_color,
-            width=int(self.style.wall_width)
-        )
+        if self.style.is_sketchy:
+            self._draw_rect_sketchy(
+                draw, coords,
+                outline=self.style.wall_color,
+                width=int(self.style.wall_width)
+            )
+        else:
+            draw.rectangle(
+                coords,
+                outline=self.style.wall_color,
+                width=int(self.style.wall_width)
+            )
 
     def _draw_door(
         self,
@@ -203,15 +211,19 @@ class FloorplanRenderer:
 
         if abs(start.x - end.x) > abs(start.y - end.y):
             # Horizontal door
-            draw.line(
-                [(door_x - door_width / 2, door_y), (door_x + door_width / 2, door_y)],
+            self._draw_line(
+                draw,
+                (door_x - door_width / 2, door_y),
+                (door_x + door_width / 2, door_y),
                 fill=self.style.door_color,
                 width=int(self.style.door_width)
             )
         else:
             # Vertical door
-            draw.line(
-                [(door_x, door_y - door_width / 2), (door_x, door_y + door_width / 2)],
+            self._draw_line(
+                draw,
+                (door_x, door_y - door_width / 2),
+                (door_x, door_y + door_width / 2),
                 fill=self.style.door_color,
                 width=int(self.style.door_width)
             )
@@ -235,8 +247,10 @@ class FloorplanRenderer:
         center_x = (bounds.x + bounds.width / 2) * scale + offset_x
         top_y = bounds.y * scale + offset_y
 
-        draw.line(
-            [(center_x - window_size / 2, top_y), (center_x + window_size / 2, top_y)],
+        self._draw_line(
+            draw,
+            (center_x - window_size / 2, top_y),
+            (center_x + window_size / 2, top_y),
             fill=self.style.window_color,
             width=int(self.style.window_width)
         )
@@ -275,6 +289,56 @@ class FloorplanRenderer:
             font=font,
             anchor="mm"
         )
+
+    def _draw_line(
+        self,
+        draw: ImageDraw.ImageDraw,
+        start: tuple[float, float],
+        end: tuple[float, float],
+        fill: tuple[int, int, int],
+        width: int
+    ) -> None:
+        """Draw a line, optionally sketchy."""
+        if self.style.is_sketchy:
+            # Draw multiple wobbly lines
+            intensity = self.style.sketch_intensity
+            for _ in range(3):
+                # Perturb start and end
+                s_x = start[0] + random.uniform(-2, 2) * intensity
+                s_y = start[1] + random.uniform(-2, 2) * intensity
+                e_x = end[0] + random.uniform(-2, 2) * intensity
+                e_y = end[1] + random.uniform(-2, 2) * intensity
+                
+                # Overshoot
+                dx = e_x - s_x
+                dy = e_y - s_y
+                length = (dx*dx + dy*dy)**0.5
+                if length > 0:
+                    overshoot = random.uniform(-5, 5) * intensity
+                    e_x += (dx/length) * overshoot
+                    e_y += (dy/length) * overshoot
+                    s_x -= (dx/length) * overshoot
+                    s_y -= (dy/length) * overshoot
+
+                draw.line([(s_x, s_y), (e_x, e_y)], fill=fill, width=width)
+        else:
+            draw.line([start, end], fill=fill, width=width)
+
+    def _draw_rect_sketchy(
+        self,
+        draw: ImageDraw.ImageDraw,
+        coords: tuple[float, float, float, float],
+        outline: tuple[int, int, int],
+        width: int
+    ) -> None:
+        """Draw a rectangle using sketchy lines."""
+        x1, y1, x2, y2 = coords
+        
+        # Draw 4 sides
+        self._draw_line(draw, (x1, y1), (x2, y1), outline, width)
+        self._draw_line(draw, (x2, y1), (x2, y2), outline, width)
+        self._draw_line(draw, (x2, y2), (x1, y2), outline, width)
+        self._draw_line(draw, (x1, y2), (x1, y1), outline, width)
 
 
 def render_floorplan(

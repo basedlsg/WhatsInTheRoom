@@ -1,0 +1,56 @@
+{
+    "id": "c19a37d0-9e19-4cad-9037-fb6ff4f81270",
+    "seed": 42,
+    "region": "Japanese_apartment",
+    "size_category": "micro",
+    "rooms": [
+        {
+            "id": "87d33359-819b-49e0-b6ed-701150b2d679",
+            "room_type": "kitchen",
+            "bounds": {
+                "x": 2.5174890811317514,
+                "y": 0,
+                "width": 3.6225525645482515,
+                "height": 4.47361237767128
+            },
+            "has_window": false,
+            "is_mystery": true,
+            "metadata": {}
+        },
+        {
+            "id": "8597df16-9298-4c44-8ab7-66527f3ab99e",
+            "room_type": "bathroom",
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "width": 2.5174890811317514,
+                "height": 4.47361237767128
+            },
+            "has_window": true,
+            "is_mystery": false,
+            "metadata": {}
+        }
+    ],
+    "doors": [
+        {
+            "id": "b297b996-42e2-4111-8e66-e89d4cc6845c",
+            "room_a_id": "87d33359-819b-49e0-b6ed-701150b2d679",
+            "room_b_id": "8597df16-9298-4c44-8ab7-66527f3ab99e",
+            "position": {
+                "x": 2.5174890811317514,
+                "y": 2.126801709170704
+            },
+            "door_type": "sliding",
+            "metadata": {}
+        }
+    ],
+    "mystery_room_id": "87d33359-819b-49e0-b6ed-701150b2d679",
+    "metadata": {
+        "target_area": 27.4681663055312,
+        "actual_area": 27.4681663055312,
+        "room_count": 2,
+        "door_count": 1,
+        "is_adversarial": true,
+        "confusion_type": "adjacency_violation"
+    }
+}

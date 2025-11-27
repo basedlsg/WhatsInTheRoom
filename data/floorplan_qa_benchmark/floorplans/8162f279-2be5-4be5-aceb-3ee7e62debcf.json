@@ -1,0 +1,136 @@
+{
+  "id": "8162f279-2be5-4be5-aceb-3ee7e62debcf",
+  "seed": 10067,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "d43b9e49-2551-45c0-93e3-acc063bde3f8",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.702785113128456,
+        "height": 3.787198914524059
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c4dc5a95-7b7f-441e-935b-77b34885fdb2",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 5.702785113128456,
+        "y": 0,
+        "width": 5.588427052891605,
+        "height": 2.923825474113397
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b31fc04c-e381-4866-a684-1083d1ed7bd6",
+      "room_type": "office",
+      "bounds": {
+        "x": 5.702785113128456,
+        "y": 2.923825474113397,
+        "width": 5.588427052891605,
+        "height": 6.321958363063056
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "5ec52a87-d164-48f5-8330-0bdd1e677e33",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 3.787198914524059,
+        "width": 5.702785113128456,
+        "height": 2.683856140615976
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b9d5341c-9e53-45be-8866-6053ac6b4669",
+      "room_type": "office",
+      "bounds": {
+        "x": 0,
+        "y": 6.471055055140035,
+        "width": 5.702785113128456,
+        "height": 2.7747287820364166
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "861e91ab-9fe1-48c7-ba1c-7270c26722b5",
+      "room_a_id": "d43b9e49-2551-45c0-93e3-acc063bde3f8",
+      "room_b_id": "b31fc04c-e381-4866-a684-1083d1ed7bd6",
+      "position": {
+        "x": 5.702785113128456,
+        "y": 3.3555121943187283
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    },
+    {
+      "id": "3ee38501-06a2-4d27-b91b-d6487d19f2d1",
+      "room_a_id": "b31fc04c-e381-4866-a684-1083d1ed7bd6",
+      "room_b_id": "5ec52a87-d164-48f5-8330-0bdd1e677e33",
+      "position": {
+        "x": 5.702785113128456,
+        "y": 5.083277410090357
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    },
+    {
+      "id": "4e8bbc8e-edc0-4128-ac37-8e08a28a1215",
+      "room_a_id": "5ec52a87-d164-48f5-8330-0bdd1e677e33",
+      "room_b_id": "b9d5341c-9e53-45be-8866-6053ac6b4669",
+      "position": {
+        "x": 4.730823936110054,
+        "y": 6.471055055140035
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "95fb2a48-ab6e-4a59-b822-c6ccb02f4251",
+      "room_a_id": "d43b9e49-2551-45c0-93e3-acc063bde3f8",
+      "room_b_id": "c4dc5a95-7b7f-441e-935b-77b34885fdb2",
+      "position": {
+        "x": 5.702785113128456,
+        "y": 2.1337622038870045
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "b9d5341c-9e53-45be-8866-6053ac6b4669",
+  "metadata": {
+    "target_area": 104.3961069467184,
+    "actual_area": 104.3961069467184,
+    "room_count": 5,
+    "door_count": 4,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "missing_rooms",
+      "severity": "extreme"
+    },
+    "mystery_room": {
+      "id": "b9d5341c-9e53-45be-8866-6053ac6b4669",
+      "type": "office",
+      "difficulty": "medium"
+    }
+  }
+}

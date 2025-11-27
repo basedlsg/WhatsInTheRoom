@@ -1,0 +1,56 @@
+{
+    "id": "a05cde60-9dcd-4b79-97d2-8ed5d73a70bd",
+    "seed": 42,
+    "region": "Australian_house",
+    "size_category": "micro",
+    "rooms": [
+        {
+            "id": "ff6bf9a9-7815-433b-8de8-23fa53ae4954",
+            "room_type": "kitchen",
+            "bounds": {
+                "x": 2.9394280106949364,
+                "y": 0,
+                "width": 4.229703540029233,
+                "height": 5.223403601022548
+            },
+            "has_window": false,
+            "is_mystery": false,
+            "metadata": {}
+        },
+        {
+            "id": "7d6352ad-6b13-4592-a412-2b599b77c3b9",
+            "room_type": "bathroom",
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "width": 2.9394280106949364,
+                "height": 5.223403601022548
+            },
+            "has_window": true,
+            "is_mystery": true,
+            "metadata": {}
+        }
+    ],
+    "doors": [
+        {
+            "id": "364a3bde-33d8-4daa-bd73-6fbf29405dd2",
+            "room_a_id": "ff6bf9a9-7815-433b-8de8-23fa53ae4954",
+            "room_b_id": "7d6352ad-6b13-4592-a412-2b599b77c3b9",
+            "position": {
+                "x": 2.9394280106949364,
+                "y": 3.0170709841389525
+            },
+            "door_type": "standard",
+            "metadata": {}
+        }
+    ],
+    "mystery_room_id": "7d6352ad-6b13-4592-a412-2b599b77c3b9",
+    "metadata": {
+        "target_area": 37.44726755825699,
+        "actual_area": 37.447267558256996,
+        "room_count": 2,
+        "door_count": 1,
+        "is_adversarial": true,
+        "confusion_type": "adjacency_violation"
+    }
+}

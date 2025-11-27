@@ -1,0 +1,80 @@
+{
+    "id": "ad507422-aa27-4c62-aa64-05a1b865083c",
+    "seed": 42,
+    "region": "European_old_town",
+    "size_category": "micro",
+    "rooms": [
+        {
+            "id": "db455a63-3431-4c68-b000-28e9f79d4882",
+            "room_type": "living_room",
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "width": 2.427964669407071,
+                "height": 4.314526278987895
+            },
+            "has_window": true,
+            "is_mystery": false,
+            "metadata": {}
+        },
+        {
+            "id": "afed301f-ed95-456c-8ce2-f9a70913deb5",
+            "room_type": "bedroom",
+            "bounds": {
+                "x": 2.427964669407071,
+                "y": 0,
+                "width": 3.49373099796687,
+                "height": 2.462212972281884
+            },
+            "has_window": false,
+            "is_mystery": false,
+            "metadata": {}
+        },
+        {
+            "id": "0504834a-c8c5-486f-a6ac-fc97a51f086b",
+            "room_type": "living_room",
+            "bounds": {
+                "x": 2.427964669407071,
+                "y": 2.462212972281884,
+                "width": 3.49373099796687,
+                "height": 1.852313306706011
+            },
+            "has_window": true,
+            "is_mystery": true,
+            "metadata": {}
+        }
+    ],
+    "doors": [
+        {
+            "id": "2960960c-4bdc-40e9-9234-5cab72906cdc",
+            "room_a_id": "db455a63-3431-4c68-b000-28e9f79d4882",
+            "room_b_id": "afed301f-ed95-456c-8ce2-f9a70913deb5",
+            "position": {
+                "x": 2.427964669407071,
+                "y": 1.1429886101952031
+            },
+            "door_type": "standard",
+            "metadata": {}
+        },
+        {
+            "id": "f49f95c6-387e-41d4-8da2-b88f34ab0620",
+            "room_a_id": "afed301f-ed95-456c-8ce2-f9a70913deb5",
+            "room_b_id": "0504834a-c8c5-486f-a6ac-fc97a51f086b",
+            "position": {
+                "x": 3.3938365558650228,
+                "y": 2.462212972281884
+            },
+            "door_type": "standard",
+            "metadata": {}
+        }
+    ],
+    "mystery_room_id": "0504834a-c8c5-486f-a6ac-fc97a51f086b",
+    "metadata": {
+        "target_area": 25.549311573053625,
+        "actual_area": 25.54931157305363,
+        "room_count": 3,
+        "door_count": 2,
+        "is_adversarial": true,
+        "confusion_type": "missing_rooms"
+    }
+}
