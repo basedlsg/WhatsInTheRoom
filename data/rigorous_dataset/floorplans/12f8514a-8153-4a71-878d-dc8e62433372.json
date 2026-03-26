@@ -1,0 +1,64 @@
+{
+  "id": "12f8514a-8153-4a71-878d-dc8e62433372",
+  "seed": 2025,
+  "region": "Modern_urban",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "b41ce995-bca8-4152-a04d-ce5c1b0f1f36",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 0,
+        "y": 5.571508830084371,
+        "width": 16.98581833500713,
+        "height": 6.309554753407406
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "bdef8445-92af-45eb-9ce2-a9ef3b64985c",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 16.98581833500713,
+        "height": 5.571508830084371
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "8978d69d-c1d9-4d6f-af4c-11bfacf5676d",
+      "room_a_id": "b41ce995-bca8-4152-a04d-ce5c1b0f1f36",
+      "room_b_id": "bdef8445-92af-45eb-9ce2-a9ef3b64985c",
+      "position": {
+        "x": 10.591652039298632,
+        "y": 5.571508830084371
+      },
+      "door_type": "archway",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "bdef8445-92af-45eb-9ce2-a9ef3b64985c",
+  "metadata": {
+    "target_area": 201.80958765586018,
+    "actual_area": 201.80958765586016,
+    "room_count": 2,
+    "door_count": 1,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "topological_island",
+      "severity": "extreme"
+    },
+    "mystery_room": {
+      "id": "bdef8445-92af-45eb-9ce2-a9ef3b64985c",
+      "type": "living_room",
+      "difficulty": "easy"
+    }
+  }
+}

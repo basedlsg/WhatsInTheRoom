@@ -1,0 +1,89 @@
+[
+  {
+    "model": "Majority Class",
+    "split": "clean",
+    "accuracy": 0.3136448598130841,
+    "correct": 839,
+    "total": 2675,
+    "per_class_accuracy": {
+      "living_room": 0.0,
+      "bedroom": 0.0,
+      "bathroom": 0.0,
+      "kitchen": 1.0,
+      "office": 0.0
+    },
+    "majority_class": "kitchen"
+  },
+  {
+    "model": "Random",
+    "split": "clean",
+    "accuracy": 0.18878504672897195,
+    "correct": 505,
+    "total": 2675,
+    "per_class_accuracy": {
+      "living_room": 0.18952618453865336,
+      "bedroom": 0.2062992125984252,
+      "bathroom": 0.21,
+      "kitchen": 0.17878426698450536,
+      "office": 0.16
+    }
+  },
+  {
+    "model": "Majority Class",
+    "split": "adversarial",
+    "accuracy": 0.285,
+    "correct": 285,
+    "total": 1000,
+    "per_class_accuracy": {
+      "kitchen": 0.0,
+      "bedroom": 0.0,
+      "bathroom": 0.0,
+      "living_room": 1.0,
+      "office": 0.0
+    },
+    "majority_class": "living_room"
+  },
+  {
+    "model": "Random",
+    "split": "adversarial",
+    "accuracy": 0.194,
+    "correct": 194,
+    "total": 1000,
+    "per_class_accuracy": {
+      "kitchen": 0.2097560975609756,
+      "bedroom": 0.21611721611721613,
+      "bathroom": 0.1890547263681592,
+      "living_room": 0.1649122807017544,
+      "office": 0.19444444444444445
+    }
+  },
+  {
+    "model": "Majority Class",
+    "split": "corruption",
+    "accuracy": 0.323,
+    "correct": 323,
+    "total": 1000,
+    "per_class_accuracy": {
+      "kitchen": 1.0,
+      "office": 0.0,
+      "living_room": 0.0,
+      "bedroom": 0.0,
+      "bathroom": 0.0
+    },
+    "majority_class": "kitchen"
+  },
+  {
+    "model": "Random",
+    "split": "corruption",
+    "accuracy": 0.201,
+    "correct": 201,
+    "total": 1000,
+    "per_class_accuracy": {
+      "kitchen": 0.20123839009287925,
+      "office": 0.2077922077922078,
+      "living_room": 0.21232876712328766,
+      "bedroom": 0.168141592920354,
+      "bathroom": 0.23178807947019867
+    }
+  }
+]

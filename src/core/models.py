@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any
+from typing import Any, Optional
 import uuid
 
 from .geometry import Rectangle, Point
@@ -78,11 +78,11 @@ class Door:
         """Check if this door connects two specific rooms."""
         return {self.room_a_id, self.room_b_id} == {room_id_1, room_id_2}
 
-    def get_other_room(self, room_id: str) -> str | None:
-        """Get the ID of the room on the other side of this door."""
+    def get_other_room(self, room_id: str) -> Optional[str]:
+        """Get the ID of the room connected to room_id via this door."""
         if self.room_a_id == room_id:
             return self.room_b_id
-        elif self.room_b_id == room_id:
+        if self.room_b_id == room_id:
             return self.room_a_id
         return None
 
@@ -129,14 +129,14 @@ class Floorplan:
         return sum(room.area for room in self.rooms)
 
     @property
-    def mystery_room(self) -> Room | None:
-        """Get the mystery room."""
+    def mystery_room(self) -> Optional[Room]:
+        """Get the mystery room if one exists."""
         for room in self.rooms:
             if room.id == self.mystery_room_id:
                 return room
         return None
 
-    def get_room_by_id(self, room_id: str) -> Room | None:
+    def get_room_by_id(self, room_id: str) -> Optional[Room]:
         """Get a room by its ID."""
         for room in self.rooms:
             if room.id == room_id:
@@ -197,7 +197,7 @@ class ModelPrediction:
     floorplan_id: str
     model_name: str
     predicted_room_type: str
-    confidence: float | None = None
+    confidence: Optional[float] = None
     reasoning: str = ""
     timestamp: datetime = field(default_factory=datetime.now)
     raw_response: dict[str, Any] = field(default_factory=dict)

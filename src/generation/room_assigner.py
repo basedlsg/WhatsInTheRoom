@@ -17,6 +17,7 @@ from .parameters import MYSTERY_ROOM_WEIGHTS, ROOM_AREA_RANGES
 
 
 # Canonical mystery room types for publication-grade benchmark
+# Canonical mystery room types for publication-grade benchmark
 CANDIDATE_MYSTERY_TYPES = {
     RoomType.BEDROOM,
     RoomType.BATHROOM,
@@ -109,31 +110,44 @@ def assign_room_types(
 
 def compute_room_difficulty_features(room: Room, all_rooms: List[Room]) -> Dict[str, float]:
     """
-    Compute difficulty features for a room to classify mystery room difficulty.
+    Compute difficulty features for a room using ONLY geometric properties.
+    
+    Does NOT use room_type to avoid circular dependency (room_type is
+    exactly what the model must infer).
     
     Args:
         room: Room to analyze
         all_rooms: All rooms in the floorplan
     
     Returns:
-        Dictionary of features
+        Dictionary of geometric features
     """
     features = {}
     
     # Area feature
     features['area'] = room.area
     
-    # Count features (will be set separately with door/window counts)
+    # Window presence
     features['has_window'] = 1.0 if room.has_window else 0.0
     
-    # Uniqueness of area among all rooms
-    all_areas = [r.area for r in all_rooms]
-    area_distances = [abs(room.area - a) for a in all_areas if a != room.area]
+    # Aspect ratio (width / height, always >= 1.0)
+    w, h = room.bounds.width, room.bounds.height
+    features['aspect_ratio'] = max(w, h) / min(w, h) if min(w, h) > 0 else 1.0
+    
+    # Uniqueness of area among all rooms (min distance to nearest room area)
+    all_areas = [r.area for r in all_rooms if r.id != room.id]
+    area_distances = [abs(room.area - a) for a in all_areas]
     features['area_uniqueness'] = min(area_distances) if area_distances else 10.0
     
-    # Type count (how many of this type exist)
-    type_count = sum(1 for r in all_rooms if r.room_type == room.room_type)
-    features['type_count'] = type_count
+    # Count of rooms with similar area (within 20% of this room's area)
+    threshold = room.area * 0.2
+    similar_count = sum(1 for a in all_areas if abs(room.area - a) <= threshold)
+    features['similar_area_count'] = similar_count
+    
+    # Relative area rank (0 = smallest, 1 = largest)
+    all_areas_with_self = sorted([r.area for r in all_rooms])
+    rank = all_areas_with_self.index(room.area)
+    features['area_rank'] = rank / max(len(all_areas_with_self) - 1, 1)
     
     return features
 
@@ -145,11 +159,13 @@ def classify_room_difficulty(
     adjacent_count: int = 2
 ) -> DifficultyTier:
     """
-    Classify mystery room difficulty based on features.
+    Classify mystery room difficulty based on geometric features ONLY.
     
-    Easy: Large, unique size OR clear distinguishing features
-    Medium: Typical sizes/adjacencies, unambiguous
-    Hard: Threshold sizes, ambiguous features
+    Does NOT use room.room_type to avoid circular dependency.
+    
+    Easy: Highly distinctive geometry (very large/small, unique area)
+    Medium: Moderately distinctive geometry
+    Hard: Ambiguous geometry (mid-range area, many similar-sized rooms)
     
     Args:
         room: Room to classify
@@ -162,31 +178,32 @@ def classify_room_difficulty(
     """
     features = compute_room_difficulty_features(room, all_rooms)
     
-    # Rule-based classification
     area = features['area']
     uniqueness = features['area_uniqueness']
-    type_count = features['type_count']
+    aspect_ratio = features['aspect_ratio']
+    similar_count = features['similar_area_count']
+    area_rank = features['area_rank']
     
-    # EASY: Clear distinguishing features
-    if room.room_type == RoomType.KITCHEN and area > 12:
-        return DifficultyTier.EASY
-    if room.room_type == RoomType.BATHROOM and type_count == 1:
-        return DifficultyTier.EASY
+    # EASY: Highly distinctive geometry
+    # Very unique area AND large — stands out clearly
     if uniqueness > 5.0 and area > 15:
-        # Very unique size and large
+        return DifficultyTier.EASY
+    # Very large room with low aspect ratio (square-ish) — clearly a main room
+    if area > 20 and aspect_ratio < 1.5:
+        return DifficultyTier.EASY
+    # Extreme area rank (largest or smallest) with high uniqueness
+    if (area_rank > 0.9 or area_rank < 0.1) and uniqueness > 3.0:
         return DifficultyTier.EASY
     
-    # HARD: Ambiguous cases
-    # Small bedroom vs office
-    if room.room_type == RoomType.BEDROOM and 8 <= area <= 12:
+    # HARD: Ambiguous geometry
+    # Mid-range area with many similar-sized rooms
+    if 8 <= area <= 15 and similar_count >= 2:
         return DifficultyTier.HARD
-    if room.room_type == RoomType.OFFICE and 8 <= area <= 12:
+    # Very elongated and small — could be hallway, closet, or bathroom
+    if aspect_ratio > 2.5 and area < 10:
         return DifficultyTier.HARD
-    # Large closet vs pantry
-    if room.room_type == RoomType.CLOSET and area > 4:
-        return DifficultyTier.HARD
-    # Multiple of same type
-    if type_count >= 2 and area < 15:
+    # Mid-range area rank with low uniqueness
+    if 0.3 <= area_rank <= 0.7 and uniqueness < 2.0:
         return DifficultyTier.HARD
     
     # MEDIUM: Everything else

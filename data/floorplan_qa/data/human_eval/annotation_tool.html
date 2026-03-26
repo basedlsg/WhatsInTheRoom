@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloorplanQA Human Annotation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        .progress {
+            background: #333;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            height: 100%;
+            transition: width 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            color: #888;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .image-panel {
+            background: #16213e;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .image-panel img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+        .question-panel {
+            background: #16213e;
+            border-radius: 15px;
+            padding: 30px;
+        }
+        .question-text {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .choice-btn {
+            background: #1f3460;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: #eee;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        .choice-btn:hover {
+            background: #2a4a80;
+            border-color: #00d4ff;
+        }
+        .choice-btn.selected {
+            background: #00d4ff;
+            color: #000;
+            border-color: #00d4ff;
+        }
+        .choice-btn.correct {
+            background: #00c853;
+            border-color: #00c853;
+        }
+        .choice-btn.incorrect {
+            background: #ff1744;
+            border-color: #ff1744;
+        }
+        .choice-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .nav-btn {
+            background: #7b2cbf;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .nav-btn:hover {
+            background: #9c4dcc;
+        }
+        .nav-btn:disabled {
+            background: #444;
+            cursor: not-allowed;
+        }
+        .results-panel {
+            background: #16213e;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+        }
+        .results-panel.visible {
+            display: block;
+        }
+        .results-panel h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        th {
+            color: #00d4ff;
+        }
+        .download-btn {
+            background: #00c853;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 30px;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .question-type {
+            display: inline-block;
+            background: #7b2cbf;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 FloorplanQA Human Annotation</h1>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+            </div>
+            <div class="stats">
+                <span>Question: <strong id="currentNum">1</strong> / <strong id="totalNum">100</strong></span>
+                <span>Correct: <strong id="correctCount">0</strong></span>
+                <span>Accuracy: <strong id="accuracy">0%</strong></span>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="image-panel">
+                <img id="floorplanImage" src="" alt="Floorplan">
+            </div>
+            
+            <div class="question-panel">
+                <div class="question-type" id="questionType">room_count</div>
+                <p class="question-text" id="questionText">Loading question...</p>
+                
+                <div class="choices" id="choices"></div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-btn" id="prevBtn" onclick="prevQuestion()" disabled>← Previous</button>
+                    <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next →</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results-panel" id="resultsPanel">
+            <h2>📊 Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Question Type</th>
+                        <th>Correct</th>
+                        <th>Total</th>
+                        <th>Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTable"></tbody>
+            </table>
+            <button class="download-btn" onclick="downloadResults()">Download Results JSON</button>
+        </div>
+    </div>
+    
+    <script>
+        let questions = [];
+        let currentIndex = 0;
+        let answers = {};
+        
+        // Load questions from JSON file
+        async function loadQuestions() {
+            try {
+                const response = await fetch('questions_human_eval.json');
+                questions = await response.json();
+                document.getElementById('totalNum').textContent = questions.length;
+                showQuestion(0);
+            } catch (e) {
+                // If no file, use sample data
+                questions = getSampleQuestions();
+                document.getElementById('totalNum').textContent = questions.length;
+                showQuestion(0);
+            }
+        }
+        
+        function getSampleQuestions() {
+            return [
+                {
+                    id: "sample_1",
+                    question_type: "room_count",
+                    question_text: "How many bedrooms are in this floorplan?",
+                    choices: ["1", "2", "3", "4"],
+                    correct_index: 1,
+                    image_path: "images/sample.png"
+                }
+            ];
+        }
+        
+        function showQuestion(index) {
+            if (index < 0 || index >= questions.length) return;
+            
+            currentIndex = index;
+            const q = questions[index];
+            
+            document.getElementById('currentNum').textContent = index + 1;
+            document.getElementById('questionType').textContent = q.question_type;
+            document.getElementById('questionText').textContent = q.question_text;
+            document.getElementById('floorplanImage').src = q.image_path;
+            
+            // Render choices
+            const choicesDiv = document.getElementById('choices');
+            choicesDiv.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+            q.choices.forEach((choice, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.innerHTML = `<span class="choice-label">${letters[i]}.</span> ${choice}`;
+                btn.onclick = () => selectAnswer(i);
+                
+                // Show previous answer if exists
+                if (answers[q.id] !== undefined) {
+                    if (answers[q.id].selected === i) {
+                        btn.classList.add('selected');
+                        if (i === q.correct_index) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('incorrect');
+                        }
+                    } else if (i === q.correct_index && answers[q.id].selected !== i) {
+                        btn.classList.add('correct');
+                    }
+                }
+                
+                choicesDiv.appendChild(btn);
+            });
+            
+            // Update nav buttons
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').textContent = 
+                index === questions.length - 1 ? 'Finish' : 'Next →';
+            
+            updateProgress();
+        }
+        
+        function selectAnswer(choiceIndex) {
+            const q = questions[currentIndex];
+            const isCorrect = choiceIndex === q.correct_index;
+            
+            answers[q.id] = {
+                question_id: q.id,
+                question_type: q.question_type,
+                selected: choiceIndex,
+                correct_index: q.correct_index,
+                is_correct: isCorrect,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Update UI
+            showQuestion(currentIndex);
+            updateProgress();
+        }
+        
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                showQuestion(currentIndex - 1);
+            }
+        }
+        
+        function nextQuestion() {
+            if (currentIndex < questions.length - 1) {
+                showQuestion(currentIndex + 1);
+            } else {
+                showResults();
+            }
+        }
+        
+        function updateProgress() {
+            const answered = Object.keys(answers).length;
+            const correct = Object.values(answers).filter(a => a.is_correct).length;
+            const pct = (answered / questions.length) * 100;
+            
+            document.getElementById('progressBar').style.width = pct + '%';
+            document.getElementById('correctCount').textContent = correct;
+            document.getElementById('accuracy').textContent = 
+                answered > 0 ? Math.round((correct / answered) * 100) + '%' : '0%';
+        }
+        
+        function showResults() {
+            // Calculate per-type stats
+            const byType = {};
+            Object.values(answers).forEach(a => {
+                if (!byType[a.question_type]) {
+                    byType[a.question_type] = { correct: 0, total: 0 };
+                }
+                byType[a.question_type].total++;
+                if (a.is_correct) byType[a.question_type].correct++;
+            });
+            
+            const tbody = document.getElementById('resultsTable');
+            tbody.innerHTML = '';
+            
+            for (const [type, stats] of Object.entries(byType)) {
+                const row = document.createElement('tr');
+                const acc = Math.round((stats.correct / stats.total) * 100);
+                row.innerHTML = `
+                    <td>${type}</td>
+                    <td>${stats.correct}</td>
+                    <td>${stats.total}</td>
+                    <td>${acc}%</td>
+                `;
+                tbody.appendChild(row);
+            }
+            
+            // Add total row
+            const total = Object.values(answers).length;
+            const correct = Object.values(answers).filter(a => a.is_correct).length;
+            const totalRow = document.createElement('tr');
+            totalRow.innerHTML = `
+                <td><strong>TOTAL</strong></td>
+                <td><strong>${correct}</strong></td>
+                <td><strong>${total}</strong></td>
+                <td><strong>${Math.round((correct / total) * 100)}%</strong></td>
+            `;
+            tbody.appendChild(totalRow);
+            
+            document.getElementById('resultsPanel').classList.add('visible');
+        }
+        
+        function downloadResults() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                total_questions: questions.length,
+                answered: Object.keys(answers).length,
+                correct: Object.values(answers).filter(a => a.is_correct).length,
+                answers: Object.values(answers)
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'human_annotation_results.json';
+            a.click();
+        }
+        
+        // Initialize
+        loadQuestions();
+    </script>
+</body>
+</html>

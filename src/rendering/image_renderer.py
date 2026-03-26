@@ -83,8 +83,188 @@ class FloorplanRenderer:
             for room in floorplan.rooms:
                 if not room.is_mystery:
                     self._draw_room_label(draw, room, scale, offset_x, offset_y)
+        
+        # Draw fixtures (sinks, stoves, toilets) - usually visible even in empty plans
+        # We draw these AFTER labels but BEFORE returning, so they appear on top of background
+        if self.style.show_fixtures:
+            for room in floorplan.rooms:
+                self._draw_fixtures(draw, room, scale, offset_x, offset_y)
+
+        if self.style.show_furniture:
+            for room in floorplan.rooms:
+                self._draw_room_furniture(draw, room, scale, offset_x, offset_y)
 
         return image
+
+    def _draw_fixtures(
+        self,
+        draw: ImageDraw.ImageDraw,
+        room: Room,
+        scale: float,
+        offset_x: float,
+        offset_y: float
+    ) -> None:
+        """Draw permanent fixtures like sinks, stoves, and toilets."""
+        # Only draw for kitchen and bathroom
+        if room.room_type.value not in ["kitchen", "bathroom"]:
+            return
+            
+        # Get room coordinates in image space
+        rx, ry, rx2, ry2 = self._transform_rect(room.bounds, scale, offset_x, offset_y)
+        w = rx2 - rx
+        h = ry2 - ry
+        
+        # Don't draw if room is too small
+        if w < 20 or h < 20:
+            return
+
+        fixture_color = self.style.fixture_color
+        fixture_width = int(self.style.fixture_width)
+        
+        if room.room_type.value == "kitchen":
+            # Draw a counter along the longest wall
+            counter_depth = min(w, h) * 0.2
+            counter_depth = max(counter_depth, 10) 
+            counter_depth = min(counter_depth, 30) 
+            
+            if w > h:
+                # Horizontal room -> Counter on top
+                depth = counter_depth
+                draw.rectangle([rx, ry, rx2, ry + depth], outline=self.style.wall_color, width=1)
+                
+                # Sink (Circle)
+                sink_center_x = rx + w * 0.3
+                sink_radius = min(depth * 0.3, w * 0.1)
+                draw.ellipse(
+                    [sink_center_x - sink_radius, ry + depth/2 - sink_radius,
+                     sink_center_x + sink_radius, ry + depth/2 + sink_radius],
+                    outline=fixture_color, width=fixture_width
+                )
+                
+                # Stove
+                stove_center_x = rx + w * 0.7
+                stove_size = min(depth * 0.7, w * 0.15)
+                sx = stove_center_x - stove_size/2
+                sy = ry + depth/2 - stove_size/2
+                draw.rectangle([sx, sy, sx + stove_size, sy + stove_size], outline=fixture_color, width=fixture_width)
+                # Burners
+                b_rad = stove_size * 0.15
+                draw.ellipse([sx+stove_size*0.25-b_rad, sy+stove_size*0.25-b_rad, sx+stove_size*0.25+b_rad, sy+stove_size*0.25+b_rad], fill=fixture_color)
+                draw.ellipse([sx+stove_size*0.75-b_rad, sy+stove_size*0.75-b_rad, sx+stove_size*0.75+b_rad, sy+stove_size*0.75+b_rad], fill=fixture_color)
+                
+            else:
+                # Vertical room -> Counter on left
+                depth = counter_depth
+                draw.rectangle([rx, ry, rx + depth, ry2], outline=self.style.wall_color, width=1)
+                
+                # Sink
+                sink_center_y = ry + h * 0.3
+                sink_radius = min(depth * 0.3, h * 0.1)
+                draw.ellipse(
+                    [rx + depth/2 - sink_radius, sink_center_y - sink_radius,
+                     rx + depth/2 + sink_radius, sink_center_y + sink_radius],
+                    outline=fixture_color, width=fixture_width
+                )
+                
+                # Stove
+                stove_center_y = ry + h * 0.7
+                stove_size = min(depth * 0.7, h * 0.15)
+                sx = rx + depth/2 - stove_size/2
+                sy = stove_center_y - stove_size/2
+                draw.rectangle([sx, sy, sx + stove_size, sy + stove_size], outline=fixture_color, width=fixture_width)
+                # Burners
+                b_rad = stove_size * 0.15
+                draw.ellipse([sx+stove_size*0.25-b_rad, sy+stove_size*0.25-b_rad, sx+stove_size*0.25+b_rad, sy+stove_size*0.25+b_rad], fill=fixture_color)
+                draw.ellipse([sx+stove_size*0.75-b_rad, sy+stove_size*0.75-b_rad, sx+stove_size*0.75+b_rad, sy+stove_size*0.75+b_rad], fill=fixture_color)
+
+        elif room.room_type.value == "bathroom":
+            # Draw a toilet (Oval) and Sink (Circle)
+            toilet_w = min(w, h) * 0.25
+            toilet_w = max(toilet_w, 15)
+            
+            # Place in corner
+            draw.ellipse([rx + 5, ry + 5, rx + 5 + toilet_w, ry + 5 + toilet_w * 1.2], outline=fixture_color, width=fixture_width)
+            
+            # Sink
+            sink_rad = toilet_w * 0.4
+            draw.ellipse(
+                [rx2 - 5 - sink_rad*2, ry + 5, rx2 - 5, ry + 5 + sink_rad*2],
+                outline=fixture_color, width=fixture_width
+            )
+
+    def _draw_room_furniture(
+        self,
+        draw: ImageDraw.ImageDraw,
+        room: Room,
+        scale: float,
+        offset_x: float,
+        offset_y: float
+    ) -> None:
+        """Draw representative furniture for different room types."""
+        # Get room coordinates in image space
+        rx, ry, rx2, ry2 = self._transform_rect(room.bounds, scale, offset_x, offset_y)
+        w = rx2 - rx
+        h = ry2 - ry
+        
+        # Don't draw if room is too small
+        if w < 30 or h < 30:
+            return
+
+        furniture_color = self.style.furniture_color
+        
+        rtype = room.room_type.value
+        
+        if rtype in ["bedroom", "master_bedroom", "guest_bedroom"]:
+            # Draw a Bed
+            bed_w = min(w * 0.6, 2.0 * scale)
+            bed_h = min(h * 0.7, 2.2 * scale)
+            
+            # Center it roughly
+            bx = rx + (w - bed_w) / 2
+            by = ry + (h - bed_h) / 2
+            
+            # Main bed frame
+            draw.rectangle([bx, by, bx + bed_w, by + bed_h], outline=furniture_color, width=1)
+            # Pillows
+            pillow_w = bed_w * 0.35
+            pillow_h = bed_h * 0.15
+            # Simplified pillow drawing - just two small rects at the 'top' of the bed
+            draw.rectangle([bx + bed_w*0.1, by + bed_h*0.1, bx + bed_w*0.1 + pillow_w, by + bed_h*0.1 + pillow_h], outline=furniture_color, width=1)
+            draw.rectangle([bx + bed_w*0.9 - pillow_w, by + bed_h*0.1, bx + bed_w*0.9, by + bed_h*0.1 + pillow_h], outline=furniture_color, width=1)
+            
+        elif rtype == "living_room":
+            # Draw a Sofa (L-shape or straight)
+            sofa_depth = min(w, h) * 0.25
+            
+            # Straight sofa along bottom wall
+            draw.rectangle([rx + 10, ry2 - 10 - sofa_depth, rx2 - 10, ry2 - 10], outline=furniture_color, width=1)
+            # Cushions (visual dividers)
+            draw.line([rx + w*0.33, ry2 - 10 - sofa_depth, rx + w*0.33, ry2 - 10], fill=furniture_color, width=1)
+            draw.line([rx + w*0.66, ry2 - 10 - sofa_depth, rx + w*0.66, ry2 - 10], fill=furniture_color, width=1)
+            
+        elif rtype == "office":
+            # Draw a Desk and Chair
+            desk_w = min(w * 0.5, 1.5 * scale)
+            desk_h = min(h * 0.3, 0.8 * scale)
+            
+            dx = rx + 10
+            dy = ry + 10
+            draw.rectangle([dx, dy, dx + desk_w, dy + desk_h], outline=furniture_color, width=1)
+            # Chair circle
+            chair_rad = desk_h / 4
+            draw.ellipse([dx + desk_w/2 - chair_rad, dy + desk_h + 5, dx + desk_w/2 + chair_rad, dy + desk_h + 5 + chair_rad*2], outline=furniture_color, width=1)
+            
+        elif rtype == "dining_room":
+            # Draw a Table
+            table_w = w * 0.5
+            table_h = h * 0.4
+            tx = rx + (w - table_w) / 2
+            ty = ry + (h - table_h) / 2
+            draw.rectangle([tx, ty, tx + table_w, ty + table_h], outline=furniture_color, width=1)
+            # Chairs (small dots)
+            chair_rad = 3
+            draw.ellipse([tx - 6, ty + table_h/2 - chair_rad, tx - 2, ty + table_h/2 + chair_rad], outline=furniture_color)
+            draw.ellipse([tx + table_w + 2, ty + table_h/2 - chair_rad, tx + table_w + 6, ty + table_h/2 + chair_rad], outline=furniture_color)
 
     def _calculate_transform(self, floorplan: Floorplan) -> tuple[float, float, float]:
         """

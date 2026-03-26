@@ -14,16 +14,19 @@ class RenderStyle:
 
     # Colors (RGB tuples)
     background_color: tuple[int, int, int] = (255, 255, 255)  # White
-    wall_color: tuple[int, int, int] = (50, 50, 50)  # Dark gray
-    door_color: tuple[int, int, int] = (200, 100, 50)  # Brown
-    window_color: tuple[int, int, int] = (100, 150, 200)  # Light blue
+    wall_color: tuple[int, int, int] = (0, 0, 0)  # Pure Black for walls
+    door_color: tuple[int, int, int] = (255, 100, 0)  # Brighter Orange
+    window_color: tuple[int, int, int] = (0, 150, 255)  # Brighter Blue
     text_color: tuple[int, int, int] = (0, 0, 0)  # Black
-    mystery_room_color: tuple[int, int, int] = (220, 220, 220)  # Light gray background
+    mystery_room_color: tuple[int, int, int] = (240, 240, 240)  # Very light gray
+    furniture_color: tuple[int, int, int] = (100, 100, 100) # Darker gray for furniture
 
     # Line widths (in pixels)
-    wall_width: float = 3.0
-    door_width: float = 2.5
-    window_width: float = 2.0
+    wall_width: float = 4.0
+    door_width: float = 3.5
+    window_width: float = 3.0
+    fixture_width: float = 3.0  # Increased for visibility
+    fixture_color: tuple[int, int, int] = (0, 0, 0) # Defaults to black
 
     # Font settings
     font_family: str = "sans-serif"
@@ -34,6 +37,8 @@ class RenderStyle:
     show_room_labels: bool = True
     show_doors: bool = True
     show_windows: bool = True
+    show_fixtures: bool = True  # Show fixed furniture like sinks/toilets
+    show_furniture: bool = True  # Show movable furniture like beds/sofas
     show_measurements: bool = False  # Show room dimensions
     highlight_mystery_room: bool = True
 
@@ -57,6 +62,8 @@ HIGH_CONTRAST_STYLE = RenderStyle(
     window_color=(0, 0, 255),
     wall_width=4.0,
     font_size=16,
+    fixture_color=(0, 0, 255),  # Pure Blue
+    fixture_width=4.0
 )
 
 

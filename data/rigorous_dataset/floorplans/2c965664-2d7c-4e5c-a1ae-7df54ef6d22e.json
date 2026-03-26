@@ -1,0 +1,83 @@
+{
+  "id": "2c965664-2d7c-4e5c-a1ae-7df54ef6d22e",
+  "seed": 3020,
+  "region": "Modern_urban",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "1e9fcd92-e66a-420f-9449-aa37d946747b",
+      "room_type": "guest_bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 9.409286374043312,
+        "height": 4.771538890244514
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "433dbb6f-0675-4422-b98c-c45824ea9f4e",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 9.409286374043312,
+        "y": 0,
+        "width": 6.247193401327088,
+        "height": 12.362350548810612
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "521ab8c2-3f9b-4506-bb09-1bda1fd82d2d",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 4.771538890244514,
+        "width": 9.409286374043312,
+        "height": 7.590811658566098
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "c82a1301-0703-4acd-95f6-612918a1ff62",
+      "room_a_id": "1e9fcd92-e66a-420f-9449-aa37d946747b",
+      "room_b_id": "433dbb6f-0675-4422-b98c-c45824ea9f4e",
+      "position": {
+        "x": 9.409286374043312,
+        "y": 1.8289003987084334
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "f06fa893-e326-46db-8e45-6d380c8275a2",
+      "room_a_id": "1e9fcd92-e66a-420f-9449-aa37d946747b",
+      "room_b_id": "521ab8c2-3f9b-4506-bb09-1bda1fd82d2d",
+      "position": {
+        "x": 1.4014527034857425,
+        "y": 4.771538890244514
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "433dbb6f-0675-4422-b98c-c45824ea9f4e",
+  "metadata": {
+    "target_area": 193.55089134349248,
+    "actual_area": 193.5508913434925,
+    "room_count": 3,
+    "door_count": 2,
+    "mystery_room": {
+      "id": "433dbb6f-0675-4422-b98c-c45824ea9f4e",
+      "type": "living_room",
+      "difficulty": "easy"
+    }
+  }
+}

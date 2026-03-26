@@ -1,0 +1,67 @@
+# FloorplanQA Benchmark Configuration v1.0
+# LOCKED - Do not modify for reproducibility
+
+version: "1.0"
+seed: 42
+
+# Dataset splits
+splits:
+  train: 0        # Zero-shot evaluation only
+  dev: 100        # For prompt tuning (if needed)
+  test: 500       # Final locked evaluation set
+
+# Floorplan generation
+floorplan:
+  min_rooms: 3
+  max_rooms: 8
+  room_types:
+    - bedroom
+    - bathroom
+    - kitchen
+    - living_room
+    - dining_room
+    - office
+    - closet
+    - hallway
+  image_resolution: [1024, 1024]
+  styles:
+    - default
+    - monochrome
+    - blueprint
+
+# Question types
+question_types:
+  - name: room_count
+    description: "How many [room_type] are in this floorplan?"
+    difficulty: easy
+  - name: adjacency
+    description: "Is the [room_A] adjacent to [room_B]?"
+    difficulty: medium
+  - name: path_existence
+    description: "Can you reach [room_A] from [room_B] without passing through [room_C]?"
+    difficulty: hard
+  - name: room_identification
+    description: "What room is in the [direction] corner of the floorplan?"
+    difficulty: medium
+  - name: area_comparison
+    description: "Which is larger: [room_A] or [room_B]?"
+    difficulty: medium
+
+# Answer format
+answer_format: "multiple_choice_4"
+correct_answer_position: "random"  # A, B, C, D balanced
+
+# Integrity checks
+integrity:
+  no_duplicate_images: true
+  no_near_duplicates: true
+  perceptual_hash_threshold: 8  # Hamming distance
+  balanced_answer_distribution: true
+
+# Evaluation
+evaluation:
+  primary_metric: "accuracy"
+  secondary_metrics:
+    - "per_type_accuracy"
+    - "confidence_interval_95"
+  bootstrap_samples: 1000

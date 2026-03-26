@@ -201,5 +201,5 @@ DOOR_PLACEMENT_MARGIN = 0.5  # Margin from corners when placing doors
 
 
 # Aspect ratio constraints
-MIN_ASPECT_RATIO = 0.4  # Minimum width/height ratio (avoid very narrow rooms)
-MAX_ASPECT_RATIO = 3.0  # Maximum width/height ratio (avoid very elongated rooms)
+MIN_ASPECT_RATIO = 0.2  # Minimum width/height ratio (avoid very narrow rooms)
+MAX_ASPECT_RATIO = 5.0  # Maximum width/height ratio (avoid very elongated rooms)

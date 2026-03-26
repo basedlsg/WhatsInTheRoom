@@ -67,11 +67,12 @@ class AdversarialGenerator:
         # Adjust room count
         room_count = len(room_types)
         
-        # Generate room rectangles
+        # Generate room rectangles - use unique seed for variety
+        partition_seed = self.seed + self.rng.randint(0, 10000)
         rectangles = generate_room_rectangles(
             target_area=target_area,
             room_count=room_count,
-            seed=self.seed
+            seed=partition_seed
         )
         
         
@@ -82,6 +83,10 @@ class AdversarialGenerator:
             rooms = self._assign_shape_confusion(rectangles, room_types, region, severity)
         elif confusion_type == "window_deception":
             rooms = self._assign_window_deception(rectangles, room_types, region, severity)
+        elif confusion_type == "topological_island":
+            rooms = self._assign_topological_island(rectangles, room_types, region, severity)
+        elif confusion_type == "windowless_master":
+            rooms = self._assign_windowless_master(rectangles, room_types, region, severity)
         elif confusion_type == "adjacency_violation":
             rooms = self._assign_normal_then_violate_adjacency(rectangles, room_types, region, severity)
         elif confusion_type == "missing_rooms":
@@ -434,13 +439,95 @@ class AdversarialGenerator:
                 rtype = filtered_types[i]
             else:
                 rtype = self.rng.choice(filtered_types)
-                
+
             rooms.append(Room(
-                str(uuid.uuid4()), 
-                rtype, 
-                rect, 
-                self.rng.random() < 0.5, 
-                False
+                id=str(uuid.uuid4()),
+                room_type=rtype,
+                bounds=rect,
+                has_window=self.rng.random() < 0.5,
+                is_mystery=False
             ))
+
+        return rooms
+
+    def _assign_topological_island(
+        self,
+        rectangles: List[Rectangle],
+        room_types: List[RoomType],
+        region: RegionType,
+        severity: Severity
+    ) -> List[Room]:
+        """
+        Assign an 'island' room (completely surrounded by other rooms) to a type 
+        that typically requires exterior access (Kitchen, Laundry, Utility).
+        """
+        # 1. Identify "interior" rectangles (those with no exterior boundaries)
+        min_x = min(r.x for r in rectangles)
+        min_y = min(r.y for r in rectangles)
+        max_x = max(r.right for r in rectangles)
+        max_y = max(r.bottom for r in rectangles)
+        
+        interior_rects = []
+        
+        for r in rectangles:
+            is_exterior = (r.x == min_x or r.y == min_y or 
+                          r.right == max_x or r.bottom == max_y)
+            if not is_exterior:
+                interior_rects.append(r)
+                
+        # If no interior rects (small house), just pick the most "central" one
+        if not interior_rects:
+            center_x = (min_x + max_x) / 2
+            center_y = (min_y + max_y) / 2
+            interior_rects = sorted(rectangles, key=lambda r: (r.center.x - center_x)**2 + (r.center.y - center_y)**2)[:1]
+
+        rooms: List[Room] = []
+        
+        # Pick one interior rect to be the "Island"
+        island_rect = self.rng.choice(interior_rects)
+        # Assign it a type that SHOULD have a window/exterior wall
+        island_type = RoomType.KITCHEN if RoomType.KITCHEN in room_types else RoomType.UTILITY_ROOM
+        
+        rooms.append(Room(str(uuid.uuid4()), island_type, island_rect, False, False))
+        
+        # Assign remaining rects normally
+        remaining_rects = [r for r in rectangles if r != island_rect]
+        remaining_types = [t for t in room_types if t != island_type]
+        
+        # Ensure we have enough types
+        while len(remaining_types) < len(remaining_rects):
+            remaining_types.append(self.rng.choice(room_types))
+            
+        self.rng.shuffle(remaining_types)
+        for i, rect in enumerate(remaining_rects):
+            rooms.append(Room(str(uuid.uuid4()), remaining_types[i], rect, self.rng.random() < 0.7, False))
+            
+        return rooms
+
+    def _assign_windowless_master(
+        self,
+        rectangles: List[Rectangle],
+        room_types: List[RoomType],
+        region: RegionType,
+        severity: Severity
+    ) -> List[Room]:
+        """
+        Assign the largest room (Master Bedroom) to an interior/windowless position.
+        """
+        # Find largest rect
+        largest_rect = max(rectangles, key=lambda r: r.area)
+        
+        rooms: List[Room] = []
+        rooms.append(Room(str(uuid.uuid4()), RoomType.MASTER_BEDROOM, largest_rect, False, False))
+        
+        remaining_rects = [r for r in rectangles if r != largest_rect]
+        remaining_types = [t for t in room_types if t != RoomType.MASTER_BEDROOM]
+        
+        while len(remaining_types) < len(remaining_rects):
+            remaining_types.append(self.rng.choice(room_types))
+            
+        self.rng.shuffle(remaining_types)
+        for i, rect in enumerate(remaining_rects):
+            rooms.append(Room(str(uuid.uuid4()), remaining_types[i], rect, self.rng.random() < 0.7, False))
             
         return rooms

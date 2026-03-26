@@ -1,0 +1,112 @@
+{
+  "id": "2151424e-25bd-47db-a903-0e77d553b651",
+  "seed": 2025,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "dce90028-54c9-420d-a2f4-9d1fec617709",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 4.768691070930441,
+        "y": 0,
+        "width": 5.59016654710201,
+        "height": 7.78843246273513
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "044134fc-95d7-483b-8ec7-45d501ecaafa",
+      "room_type": "balcony",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4.768691070930441,
+        "height": 2.6460366397722823
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "0ca05a51-98a2-4a71-93b0-411e6dd5b721",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 0,
+        "y": 2.6460366397722823,
+        "width": 2.40383900497318,
+        "height": 5.142395822962847
+      },
+      "has_window": false,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "0146ac75-e245-4844-b9c3-eb993b6af98f",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 2.40383900497318,
+        "y": 2.6460366397722823,
+        "width": 2.3648520659572605,
+        "height": 5.142395822962847
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "e19fb000-18f3-4158-ab97-de8acf233124",
+      "room_a_id": "044134fc-95d7-483b-8ec7-45d501ecaafa",
+      "room_b_id": "0ca05a51-98a2-4a71-93b0-411e6dd5b721",
+      "position": {
+        "x": 0.5724616936876525,
+        "y": 2.6460366397722823
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "5e2bbee1-1d61-46f2-8abe-e446ced9409c",
+      "room_a_id": "dce90028-54c9-420d-a2f4-9d1fec617709",
+      "room_b_id": "0146ac75-e245-4844-b9c3-eb993b6af98f",
+      "position": {
+        "x": 4.768691070930441,
+        "y": 3.6090110674059215
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "4769a304-5295-4fd2-b241-6b1f064b608a",
+      "room_a_id": "044134fc-95d7-483b-8ec7-45d501ecaafa",
+      "room_b_id": "0146ac75-e245-4844-b9c3-eb993b6af98f",
+      "position": {
+        "x": 3.402350693007804,
+        "y": 2.6460366397722823
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "0ca05a51-98a2-4a71-93b0-411e6dd5b721",
+  "metadata": {
+    "target_area": 80.67926294913502,
+    "actual_area": 80.67926294913504,
+    "room_count": 4,
+    "door_count": 3,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "size_mismatch",
+      "severity": "extreme"
+    },
+    "mystery_room": {
+      "id": "0ca05a51-98a2-4a71-93b0-411e6dd5b721",
+      "type": "bedroom",
+      "difficulty": "medium"
+    }
+  }
+}

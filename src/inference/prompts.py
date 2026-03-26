@@ -219,3 +219,100 @@ Provide your analysis in JSON format:
   "reasoning": "Explanation of why one fits better",
   "counterfactual_analysis": "What would make the other one work?"
 }}"""
+
+# ==========================================
+# PHASE 5: KITCHEN BLINDNESS ABLATION PROMPTS
+# ==========================================
+
+def create_ablation_baseline_prompt() -> str:
+    """Condition 1: Baseline prediction."""
+    return """This is a 2D architectural floorplan. One room is labeled with a "?". 
+Based on its size, position, and connections to other rooms, what type 
+of room do you think it is? Choose from: bedroom, bathroom, kitchen, 
+living_room, office. Respond with your answer and 1-3 sentences of reasoning.
+
+Respond in JSON format:
+{
+  "room_type": "predicted_type",
+  "reasoning": "your explanation"
+}"""
+
+def create_ablation_spatial_prompt() -> str:
+    """Condition 2: Forced spatial enumeration before prediction."""
+    return """This is a 2D architectural floorplan. One room is labeled with a "?".
+
+Before making your prediction, you must answer these questions:
+1. Approximately how large is the mystery room compared to others on the plan?
+2. Which labeled rooms share a direct door connection with it?
+3. Does it appear to have exterior wall access (along the outer boundary)?
+4. Is it positioned near the entrance, center, or back of the floor?
+
+After answering all four questions, predict the room type. 
+Choose from: bedroom, bathroom, kitchen, living_room, office.
+
+Respond in JSON format:
+{
+  "q1_size": "answer",
+  "q2_connections": "answer",
+  "q3_exterior": "answer",
+  "q4_position": "answer",
+  "room_type": "predicted_type"
+}"""
+
+def create_ablation_rules_prompt() -> str:
+    """Condition 3: Explicit architectural rules injected."""
+    return """This is a 2D architectural floorplan. One room is labeled with a "?".
+
+Use these architectural constraints to guide your reasoning:
+- Kitchens: typically have exterior wall access, adjacent to dining or living areas
+- Bathrooms: small, adjacent to bedrooms or hallways, rarely have exterior access
+- Bedrooms: medium-to-large, private, away from entrance and social spaces
+- Living rooms: large, near entrance, connected to multiple rooms
+- Offices: medium, can be isolated, sometimes share walls with bedrooms
+
+Given these rules, what is the mystery room? 
+Choose from: bedroom, bathroom, kitchen, living_room, office.
+
+Respond in JSON format:
+{
+  "reasoning": "your explanation using the rules",
+  "room_type": "predicted_type"
+}"""
+
+def create_ablation_exclusion_prompt() -> str:
+    """Condition 4: Exclusion prompt (bedroom blocked)."""
+    return """This is a 2D architectural floorplan. One room is labeled with a "?".
+
+Important: the mystery room is definitively NOT a bedroom. 
+
+Given its size, connections, and position relative to other rooms, 
+what type of room is it? Choose from: bathroom, kitchen, living_room, office.
+Explain your reasoning in 1-3 sentences.
+
+Respond in JSON format:
+{
+  "reasoning": "your explanation",
+  "room_type": "predicted_type"
+}"""
+
+def create_ablation_contrastive_prompt() -> str:
+    """Condition 5: Contrastive scoring."""
+    return """This is a 2D architectural floorplan. One room is labeled with a "?".
+
+Rate the likelihood that the mystery room is each of the following types, 
+using a scale of 1 (very unlikely) to 5 (very likely).
+
+Then state your final prediction (the highest-rated type) and one sentence of justification.
+
+Respond in JSON format:
+{
+  "scores": {
+    "bedroom": 1,
+    "bathroom": 1,
+    "kitchen": 1,
+    "living_room": 1,
+    "office": 1
+  },
+  "room_type": "predicted_type",
+  "reasoning": "one sentence justification"
+}"""

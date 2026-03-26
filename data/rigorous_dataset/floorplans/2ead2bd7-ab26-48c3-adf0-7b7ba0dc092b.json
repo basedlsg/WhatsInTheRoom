@@ -1,0 +1,59 @@
+{
+  "id": "2ead2bd7-ab26-48c3-adf0-7b7ba0dc092b",
+  "seed": 3010,
+  "region": "Modern_urban",
+  "size_category": "medium",
+  "rooms": [
+    {
+      "id": "2de1010d-dd07-407c-81c9-28a3f9fea864",
+      "room_type": "living_room",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 6.711624531374504,
+        "height": 9.540274969500079
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c0bde6a3-6acd-4d27-a473-b58b6aa8e68e",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 6.711624531374504,
+        "y": 0,
+        "width": 6.417634449098156,
+        "height": 9.540274969500079
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "04fb1f66-2611-4172-9a67-4e25363b4a84",
+      "room_a_id": "2de1010d-dd07-407c-81c9-28a3f9fea864",
+      "room_b_id": "c0bde6a3-6acd-4d27-a473-b58b6aa8e68e",
+      "position": {
+        "x": 6.711624531374504,
+        "y": 4.1586090486968486
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "c0bde6a3-6acd-4d27-a473-b58b6aa8e68e",
+  "metadata": {
+    "target_area": 125.25674081948745,
+    "actual_area": 125.25674081948745,
+    "room_count": 2,
+    "door_count": 1,
+    "mystery_room": {
+      "id": "c0bde6a3-6acd-4d27-a473-b58b6aa8e68e",
+      "type": "bedroom",
+      "difficulty": "medium"
+    }
+  }
+}

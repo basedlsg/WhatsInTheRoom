@@ -67,20 +67,12 @@ This will produce:
 - Plots for adversarial robustness and corruption impact.
 - Statistical test results (Chi-square, Logistic Regression).
 
-## 🧠 Human Baseline
-
-We provide a human performance baseline for comparison:
-- **Expert Accuracy**: 83.8% (Architects)
-- **Non-Expert Accuracy**: 51.7% (Crowdworkers)
-- **VLM Gap**: Current SOTA models trail experts by ~40%.
-
 ## 📂 Repository Structure
 
 ```
 FloorplanQA/
 ├── data/
 │   ├── floorplan_qa_benchmark/  # Main dataset
-│   └── human_study/             # Human baseline data
 ├── src/
 │   ├── generation/              # Procedural generation logic
 │   ├── rendering/               # Visualization & corruption pipeline

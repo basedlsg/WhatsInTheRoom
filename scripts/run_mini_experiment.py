@@ -24,7 +24,7 @@ from src.rendering.image_renderer import render_floorplan
 from src.storage.floorplan_store import save_floorplan
 from src.storage.image_store import save_image_path
 from src.storage.results_store import save_predictions_csv, load_predictions_csv
-from src.inference.nim_client import NIMClient
+from src.inference.vlm_client import create_vlm_client
 from src.inference.prompts import create_mystery_room_prompt
 from collections import Counter
 
@@ -93,64 +93,70 @@ def run_mini_experiment():
     print(f"  ✅ Rendered {len(floorplans)} images")
     print()
 
-    # Step 3: Run inference (if API key is set)
-    has_api_key = bool(os.getenv("NVIDIA_API_KEY"))
+    # Step 3: Run inference (if API keys are set)
+    providers = []
+    if os.getenv("NVIDIA_API_KEY"): providers.append("nvidia")
+    if os.getenv("HF_TOKEN") or os.getenv("HUGGINGFACE_API_KEY"): providers.append("huggingface")
+    if os.getenv("LLAMA_API_KEY"): providers.append("meta")
 
-    if not has_api_key:
-        print("[3/3] NVIDIA_API_KEY not found; skipping model inference.")
+    if not providers:
+        print("[3/3] No API keys found (NVIDIA_API_KEY, HF_TOKEN, LLAMA_API_KEY). Skipping inference.")
         print("      You can still inspect the generated floorplans locally.")
         print()
-        print("      To run inference, set your API key:")
-        print("      export NVIDIA_API_KEY='your-key-here'")
-        print()
     else:
-        print(f"[3/3] Running inference with NVIDIA NIM...")
+        print(f"[3/3] Running inference with active providers: {providers}")
         predictions = []
 
-        try:
-            client = NIMClient()
-            print(f"      Using model: {client.model_name}")
+        for provider_name in providers:
+            print(f"      \n--- Testing Provider: {provider_name.upper()} ---")
+            try:
+                client = create_vlm_client(provider=provider_name)
+                print(f"      Using model: {client.model}")
 
-            for i, floorplan in enumerate(floorplans, 1):
-                try:
-                    print(f"      Processing {i}/{len(floorplans)}...", end="\r")
+                for i, floorplan in enumerate(floorplans, 1):
+                    try:
+                        print(f"      Processing {i}/{len(floorplans)}... (Provider {provider_name.upper()})", end="\r")
 
-                    image_path = os.path.join(image_dir, f"{floorplan.id}.png")
-                    prompt = create_mystery_room_prompt(
-                        region=floorplan.region,
-                        size_category=floorplan.size_category,
-                        include_metadata=True
-                    )
+                        image_path = os.path.join(image_dir, f"{floorplan.id}.png")
+                        prompt = create_mystery_room_prompt(
+                            region=floorplan.region,
+                            size_category=floorplan.size_category,
+                            include_metadata=True
+                        )
 
-                    prediction = client.predict_room_type(
-                        image_path=image_path,
-                        prompt=prompt,
-                        floorplan_id=floorplan.id
-                    )
+                        prediction = client.query(
+                            image_path=image_path,
+                            prompt=prompt
+                        )
+                        
+                        class DummyPrediction:
+                            pass
+                        pred_obj = DummyPrediction()
+                        pred_obj.predicted_room_type = prediction.get("response", "Error")
+                        pred_obj.metadata = prediction.get("raw", {})
+                        pred_obj.metadata['model'] = client.model
 
-                    # Add ground truth to metadata
-                    mystery_room = floorplan.mystery_room
-                    if mystery_room:
-                        prediction.metadata['true_room_type'] = mystery_room.room_type.value
-                        prediction.metadata['region'] = floorplan.region.value
-                        prediction.metadata['size_category'] = floorplan.size_category.value
+                        mystery_room = floorplan.mystery_room
+                        if mystery_room:
+                            pred_obj.metadata['true_room_type'] = mystery_room.room_type.value
+                            pred_obj.metadata['region'] = floorplan.region.value
+                            pred_obj.metadata['size_category'] = floorplan.size_category.value
 
-                    predictions.append(prediction)
+                        predictions.append(pred_obj)
 
-                except Exception as e:
-                    print(f"\n      ⚠️  Error predicting {floorplan.id}: {e}")
+                    except Exception as e:
+                        print(f"\n      ⚠️  Error predicting {floorplan.id}: {e}")
 
-            print(f"      ✅ Completed {len(predictions)} predictions")
+                print(f"      ✅ Completed mapping for {provider_name}")
 
-            # Save predictions
-            if predictions:
-                results_path = os.path.join(OUTPUT_DIR, "predictions.csv")
-                save_predictions_csv(predictions, results_path)
-                print(f"      Saved predictions to: {results_path}")
+            except Exception as e:
+                print(f"      ❌ Error initializing {provider_name} client: {e}")
 
-        except Exception as e:
-            print(f"      ❌ Error initializing NIM client: {e}")
-            predictions = []
+        # Save predictions
+        if predictions:
+            results_path = os.path.join(OUTPUT_DIR, "predictions.csv")
+            save_predictions_csv(predictions, results_path)
+            print(f"\n      Saved predictions to: {results_path}")
 
         print()
 
@@ -186,7 +192,7 @@ def run_mini_experiment():
     print()
 
     # Model predictions (if available)
-    if has_api_key and predictions:
+    if providers and predictions:
         predicted_types = Counter(p.predicted_room_type for p in predictions)
         print("Model predictions:")
         for room_type, count in predicted_types.most_common():

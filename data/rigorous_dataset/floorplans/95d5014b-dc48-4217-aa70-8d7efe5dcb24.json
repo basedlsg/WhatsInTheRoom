@@ -1,0 +1,160 @@
+{
+  "id": "95d5014b-dc48-4217-aa70-8d7efe5dcb24",
+  "seed": 2025,
+  "region": "Modern_urban",
+  "size_category": "large",
+  "rooms": [
+    {
+      "id": "91b695df-9f28-46ae-be48-4c0c2877d6e2",
+      "room_type": "bathroom",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 5.127008240111406,
+        "height": 10.701003187236712
+      },
+      "has_window": true,
+      "is_mystery": true,
+      "metadata": {}
+    },
+    {
+      "id": "8d3bd1e3-e873-4b48-8845-4918c2355298",
+      "room_type": "storage",
+      "bounds": {
+        "x": 5.127008240111406,
+        "y": 5.390548094398753,
+        "width": 6.211113503591303,
+        "height": 5.310455092837959
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "c0ea3b35-668c-42e3-917c-8f46eb49468b",
+      "room_type": "office",
+      "bounds": {
+        "x": 5.127008240111406,
+        "y": 0,
+        "width": 4.940720946902637,
+        "height": 5.390548094398753
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "d4ecbc03-1ddf-4b7d-b317-2feb5a6bfdeb",
+      "room_type": "guest_bedroom",
+      "bounds": {
+        "x": 10.067729187014043,
+        "y": 0,
+        "width": 4.592030189311144,
+        "height": 5.390548094398753
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "b1940062-55c7-4d18-9614-3ed68a9e1046",
+      "room_type": "bedroom",
+      "bounds": {
+        "x": 11.33812174370271,
+        "y": 7.778812957432042,
+        "width": 3.321637632622478,
+        "height": 2.922190229804669
+      },
+      "has_window": false,
+      "is_mystery": false,
+      "metadata": {}
+    },
+    {
+      "id": "feaa725d-58ac-4178-876f-0cfb06c2adb0",
+      "room_type": "kitchen",
+      "bounds": {
+        "x": 11.33812174370271,
+        "y": 5.390548094398753,
+        "width": 3.321637632622478,
+        "height": 2.3882648630332897
+      },
+      "has_window": true,
+      "is_mystery": false,
+      "metadata": {}
+    }
+  ],
+  "doors": [
+    {
+      "id": "bcdd43f9-1950-4131-aaa8-aa6daca68fa9",
+      "room_a_id": "91b695df-9f28-46ae-be48-4c0c2877d6e2",
+      "room_b_id": "8d3bd1e3-e873-4b48-8845-4918c2355298",
+      "position": {
+        "x": 5.127008240111406,
+        "y": 7.002458439402252
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    },
+    {
+      "id": "455f7d3e-5f97-476e-993c-24f89caefe0e",
+      "room_a_id": "8d3bd1e3-e873-4b48-8845-4918c2355298",
+      "room_b_id": "c0ea3b35-668c-42e3-917c-8f46eb49468b",
+      "position": {
+        "x": 5.985878478264927,
+        "y": 5.390548094398753
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "047137b4-fa72-4453-8df6-fb50320a88ce",
+      "room_a_id": "8d3bd1e3-e873-4b48-8845-4918c2355298",
+      "room_b_id": "b1940062-55c7-4d18-9614-3ed68a9e1046",
+      "position": {
+        "x": 11.33812174370271,
+        "y": 9.227521971995955
+      },
+      "door_type": "sliding",
+      "metadata": {}
+    },
+    {
+      "id": "eb28916d-5bc1-43a1-a557-45a8f64d8601",
+      "room_a_id": "8d3bd1e3-e873-4b48-8845-4918c2355298",
+      "room_b_id": "d4ecbc03-1ddf-4b7d-b317-2feb5a6bfdeb",
+      "position": {
+        "x": 10.702925465358376,
+        "y": 5.390548094398753
+      },
+      "door_type": "standard",
+      "metadata": {}
+    },
+    {
+      "id": "6843c7b1-d59e-4b33-9113-b024f821ae25",
+      "room_a_id": "8d3bd1e3-e873-4b48-8845-4918c2355298",
+      "room_b_id": "feaa725d-58ac-4178-876f-0cfb06c2adb0",
+      "position": {
+        "x": 11.33812174370271,
+        "y": 6.44491732248333
+      },
+      "door_type": "standard",
+      "metadata": {}
+    }
+  ],
+  "mystery_room_id": "91b695df-9f28-46ae-be48-4c0c2877d6e2",
+  "metadata": {
+    "target_area": 156.8741318101791,
+    "actual_area": 156.87413181017908,
+    "room_count": 6,
+    "door_count": 5,
+    "is_adversarial": true,
+    "adversarial": {
+      "type": "size_mismatch",
+      "severity": "extreme"
+    },
+    "mystery_room": {
+      "id": "91b695df-9f28-46ae-be48-4c0c2877d6e2",
+      "type": "bathroom",
+      "difficulty": "easy"
+    }
+  }
+}

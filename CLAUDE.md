@@ -78,10 +78,11 @@ python scripts/run_mini_experiment.py
 - **No premature abstraction**: Three instances before abstracting
 
 ### Anti-patterns to Avoid
-- Do NOT create mock data pipelines or fake sample datasets
-- Do NOT invent API responses "for illustration"
-- Do NOT over-engineer with unnecessary abstraction layers
-- Do NOT use global mutable state
+- **NEVER use mock data**. This is strictly forbidden.
+- **NEVER invent API responses**. You have access to real API keys; you must use them for all evaluations.
+- Do NOT create fake sample datasets or pipelines "for illustration".
+- Do NOT over-engineer with unnecessary abstraction layers.
+- Do NOT use global mutable state.
 
 ### Dependencies
 Prefer the standard scientific Python stack:
@@ -145,10 +146,10 @@ class NIMClient:
         pass
 ```
 
-### No Mock Pipelines
-- Do NOT create fake response generators
-- Use TODOs for unimplemented API details
-- When testing, use real API calls or VCR-style recorded responses
+### STRICT NO MOCK DATA POLICY
+- **NEVER create fake response generators or mock pipelines.**
+- **You are required to use real API calls at all times.** Do not use VCR-style recorded responses or mock data for testing. You have access to API keys—use them to get real results.
+- Use TODOs for unimplemented API details, but when executing, write the actual implementation against the real API.
 
 ### Configuration
 Store credentials and endpoints in environment variables:
